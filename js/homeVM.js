@@ -1,19 +1,34 @@
 
    function homeViewModel() {
     var self = this;
-    self.allProducts = ko.observableArray()
+    self.filteredProducts = ko.observableArray()
     self.allBrands = ko.observableArray()
     self.allCategories = ko.observableArray()
-    self.testAr = ko.observableArray([1,2])
+    self.currentCategory = ko.observable('FEATURED PRODUCTS')
 
-    getAllProducts()
+    getAllFeaturedProducts()
     getAllBrands()
     getAllCategories()
     
+    self.filterProductsByCat = async (category) => {
+      self.currentCategory(category.name)
+     await $.post("http://localhost:3000/api/getCategoryProducts", {Id: category.Id}, function(data) {
+        self.filteredProducts(data.categoryProducts)
+        console.log(self.filteredProducts())
+    })
+    }
 
-    function getAllProducts() {
-        $.getJSON("http://localhost:3000/api/getAllProducts", function(data) {
-          self.allProducts(data.products)
+    self.filterProductsByBrand = async (brand) => {
+      self.currentCategory(brand.name)
+      await $.post("http://localhost:3000/api/getBrandProducts", {Id: brand.Id}, function(data) {
+        self.filteredProducts(data.brandProducts)
+        console.log(self.filteredProducts())
+    })
+    }
+
+    function getAllFeaturedProducts() {
+        $.getJSON("http://localhost:3000/api/getAllFeaturedProducts", function(data) {
+          self.filteredProducts(data.featuredProducts)
         })
     }
 
@@ -30,6 +45,8 @@
         console.log(self.allCategories())
       })
   }
+
+
 
    }
 

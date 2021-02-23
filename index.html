@@ -746,8 +746,17 @@
         
                                 <!--====== Brand Slider ======-->
                                 <div class="slider-fouc">
-                                    <div class="owl-carousel" id="brand-slider" data-item="5">
+                                    <div data-bind="foreach: allBrands" class="owl-carousel" id="brand-slider" data-item="5">
                                         <div class="promotion-o u-s-m-r-20">
+                                            <div class="aspect aspect--bg-grey aspect--square">
+        
+                                                <img class="aspect__img" data-bind="attr: {src: image}" alt=""></div>
+                                            <div class="promotion-o__content">
+        
+                                                <a data-bind="text: name, attr: {href: 'brand-products.html?id=' + Id}" class="promotion-o__link btn--e-white-brand" href="brand-products.html"></a></div>
+                                        </div>
+
+                                        <!-- <div class="promotion-o u-s-m-r-20">
                                             <div class="aspect aspect--bg-grey aspect--square">
         
                                                 <img class="aspect__img" src="sample-images/promo/promo-img-4.jpg" alt=""></div>
@@ -772,16 +781,7 @@
                                             <div class="promotion-o__content">
         
                                                 <a class="promotion-o__link btn--e-white-brand" href="brand-products.html">Brand 1</a></div>
-                                        </div>
-
-                                        <div class="promotion-o u-s-m-r-20">
-                                            <div class="aspect aspect--bg-grey aspect--square">
-        
-                                                <img class="aspect__img" src="sample-images/promo/promo-img-4.jpg" alt=""></div>
-                                            <div class="promotion-o__content">
-        
-                                                <a class="promotion-o__link btn--e-white-brand" href="brand-products.html">Brand 1</a></div>
-                                        </div>
+                                        </div> -->
                                        
                                     </div>
                                 </div>
@@ -804,9 +804,9 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section__text-wrap">
-                                <h1 class="section__heading u-c-secondary u-s-m-b-12">OUR PRODUCTS</h1>
+                                <h1 data-bind="text: currentCategory" class="section__heading u-c-secondary u-s-m-b-12"></h1>
     
-                                <span class="section__span u-c-silver">ALL OUR PRODUCTS</span>
+                                <span class="section__span u-c-silver">PRODUCTS CHOSEN FOR YOU</span>
                             </div>
                         </div>
                     </div>
@@ -833,8 +833,8 @@
                                             </div>
                                             <div class="shop-w__wrap collapse show" id="s-category">
                                                 <ul data-bind="foreach: allCategories" class="shop-w__category-list gl-scroll">
-                                                    <li class="has-list">
-                                                        <a data-bind="text: name" href="#"></a>
+                                                    <li>
+                                                        <a data-bind="text: name, click: $parent.filterProductsByCat"></a>
                                                     </li>                                                       
                                                 </ul>
                                             </div>
@@ -855,7 +855,7 @@
                                             <div class="shop-w__wrap collapse show" id="s-brand">
                                                 <ul data-bind="foreach: allBrands" class="shop-w__category-list gl-scroll">
                                                     <li class="has-list">
-                                                        <a data-bind="text: name" href="#"></a>
+                                                        <a data-bind="text: name, click: $parent.filterProductsByBrand"></a>
                                                     </li>                                                       
                                                 </ul>
                                             </div>
@@ -870,7 +870,7 @@
                             <div class="shop-p">
                                 
                                 <div class="shop-p__collection">
-                                    <div data-bind="foreach: allProducts" class="row is-grid-active">
+                                    <div data-bind="foreach: filteredProducts" class="row is-grid-active">
                                         <div  class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
                                             <div class="product-r u-h-100">
                                                 <div class="product-r__container">
@@ -896,16 +896,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-r__info-wrap">
-            
+
                                                     <span class="product-r__category">
-            
                                                         <a data-bind="text: brand.name" href=""></a></span>
                                                     <div class="product-r__n-p-wrap">
             
                                                         <span class="product-r__name">
-            
-                                                            <a data-bind="text: name" href="product-detail.html"></a></span>
-            
+                                                            <a data-bind="text: name, attr: { href: 'product-detail.html?id=' + Id }"></a></span>
+                                                            
                                                         <span data-bind="text: price" class="product-r__price"></span></div>
             
                                                     <span data-bind="text: description" class="product-r__description"></span>
@@ -915,28 +913,7 @@
                                     </div>
 
                                 </div>
-                                <div class="u-s-p-y-60">
-
-                                    <!--====== Pagination ======-->
-                                    <ul class="shop-p__pagination">
-                                        <li class="is-active">
-
-                                            <a href="shop-side-version-2.html">1</a></li>
-                                        <li>
-
-                                            <a href="shop-side-version-2.html">2</a></li>
-                                        <li>
-
-                                            <a href="shop-side-version-2.html">3</a></li>
-                                        <li>
-
-                                            <a href="shop-side-version-2.html">4</a></li>
-                                        <li>
-
-                                            <a class="fas fa-angle-right" href="shop-side-version-2.html"></a></li>
-                                    </ul>
-                                    <!--====== End - Pagination ======-->
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -1107,7 +1084,7 @@
 
         <!--====== Modal Section ======-->
 
-
+        <script type="text/html">
         <!--====== Quick Look Modal ======-->
         <div class="modal fade" id="quick-look">
             <div class="modal-dialog modal-dialog-centered">
@@ -1294,6 +1271,7 @@
             </div>
         </div>
         <!--====== End - Quick Look Modal ======-->
+    </script>
 
         <!--====== Add to Cart Modal ======-->
         <div class="modal fade" id="add-to-cart">
