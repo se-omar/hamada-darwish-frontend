@@ -1368,10 +1368,15 @@
                                                 <span class="fas fa-minus shop-w__toggle" data-target="#s-category" data-toggle="collapse"></span>
                                             </div>
                                             <div class="shop-w__wrap collapse show" id="s-category">
-                                                <ul data-bind="foreach: allCategories" class="shop-w__category-list gl-scroll">
+                                                <ul class="shop-w__category-list gl-scroll">
+                                                    <li >
+                                                        <a data-bind="text: 'All', click: getAllBrandProducts"></a>
+                                                    </li>
+                                                    <!-- ko foreach: allCategories -->
                                                     <li class="has-list">
                                                         <a data-bind="text: name, click: $parent.filterProductsByCatAndBrand" ></a>
                                                     </li>
+                                                    <!-- /ko -->
                                                 </ul>
                                             </div>
                                         </div>
@@ -1994,6 +1999,7 @@
     <script src="js/app.js"></script>
 
     <script type='text/javascript' src='js/knockout-3.5.1.js'></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="js/brandProductsVM.js"></script>
 
     <!--====== Noscript ======-->

@@ -5,6 +5,14 @@
     self.allBrands = ko.observableArray()
     self.allCategories = ko.observableArray()
     self.currentCategory = ko.observable('FEATURED PRODUCTS')
+    self.cartProducts = ko.observableArray()
+    if(!localStorage.getItem('cartProducts')){
+      localStorage.setItem('cartProducts', JSON.stringify([]))
+    }
+    else{
+      self.cartProducts(JSON.parse(localStorage.getItem('cartProducts')))
+    }
+   
 
     getAllFeaturedProducts()
     getAllBrands()
@@ -26,6 +34,44 @@
     })
     }
 
+    self.getFeaturedProducts = () => {
+      getAllFeaturedProducts()
+    }
+
+    self.addToCart = (product) => {
+      var cartProducts = JSON.parse(localStorage.getItem('cartProducts'))
+      if(cartProducts && containsObject(product, cartProducts)){
+        Swal.fire({
+          title: 'Error!',
+          text: 'This Product already exists in Cart',
+          icon: 'error',
+          confirmButtonText: 'Continue Shopping',
+        
+        })
+      }
+      else{
+        cartProducts.push(product)
+        localStorage.setItem('cartProducts', JSON.stringify(cartProducts)) 
+        self.cartProducts(JSON.parse(localStorage.getItem('cartProducts')))
+        Swal.fire({
+          title: 'Success!',
+          text: 'Product added to Cart Successfully' ,
+          icon: 'success',
+          confirmButtonText: 'Continue Shopping',
+        })
+        console.log(self.cartProducts())
+      }
+     
+    }
+
+    self.removeProductFromCart = (product) => {
+      console.log(product)
+      var cartProducts = JSON.parse(localStorage.getItem('cartProducts'))
+      cartProducts.splice(cartProducts.findIndex(v => v.Id === product.Id), 1)
+      localStorage.setItem('cartProducts', JSON.stringify(cartProducts))
+      self.cartProducts(cartProducts)
+    }
+
     function getAllFeaturedProducts() {
         $.getJSON("http://localhost:3000/api/getAllFeaturedProducts", function(data) {
           self.filteredProducts(data.featuredProducts)
@@ -45,6 +91,15 @@
         console.log(self.allCategories())
       })
   }
+
+  
+  function containsObject(obj, list) {
+    if(list.some(listItem => listItem.Id === obj.Id)){
+      return true
+  } else{
+      return false
+  }
+}
 
 
 

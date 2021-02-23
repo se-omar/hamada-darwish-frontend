@@ -419,7 +419,7 @@
                         <!--====== Dropdown Main plugin ======-->
                         <div class="menu-init" id="navigation3">
 
-                            <button class="btn btn--icon toggle-button fas fa-shopping-bag toggle-button-shop" type="button"></button>
+                            <button class="btn btn--icon toggle-button toggle-button--white fas fa-shopping-bag toggle-button-shop" type="button"></button>
 
                             <span class="total-item-round">2</span>
 
@@ -436,11 +436,11 @@
                                     <!-- <li>
 
                                         <a href="wishlist.html"><i class="far fa-heart"></i></a></li> -->
-                                    <li class="has-dropdown">
+                                    <li data-bind="class:cartProducts().length == 0 ? '' : 'has-dropdown'" >
 
                                         <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
 
-                                            <span class="total-item-round">2</span></a>
+                                            <span data-bind="text: cartProducts().length" class="total-item-round"></span></a>
 
                                         <!--====== Dropdown ======-->
 
@@ -448,118 +448,36 @@
                                         <div class="mini-cart">
 
                                             <!--====== Mini Product Container ======-->
-                                            <div class="mini-product-container gl-scroll u-s-m-b-15">
+                                            <div data-bind="foreach: cartProducts" class="mini-product-container gl-scroll u-s-m-b-15">
 
                                                 <!--====== Card for mini cart ======-->
                                                 <div class="card-mini-product">
                                                     <div class="mini-product">
                                                         <div class="mini-product__image-wrapper">
 
-                                                            <a class="mini-product__link" href="product-detail.html">
+                                                            <a data-bind="attr:{href: 'product-detail.html?id=' + Id}" class="mini-product__link" >
 
-                                                                <img class="u-img-fluid" src="sample-images/product/men/product2.jpg" alt=""></a></div>
+                                                                <img data-bind="attr: {src: image1? image1: ''}" class="u-img-fluid" alt=""></a></div>
                                                         <div class="mini-product__info-wrapper">
 
                                                             <span class="mini-product__category">
 
-                                                                <a href="">Electronics</a></span>
+                                                                <a data-bind="text: category.name" href=""></a></span>
 
                                                             <span class="mini-product__name">
 
-                                                                <a href="product-detail.html">Yellow Wireless Headphone</a></span>
+                                                                <a data-bind="text: name, attr:{href: 'product-detail.html?id=' + Id}" ></a></span>
 
                                                             <span class="mini-product__quantity">1 x</span>
 
-                                                            <span class="mini-product__price">$8</span></div>
+                                                            <span data-bind="text: price" class="mini-product__price"></span></div>
                                                     </div>
 
-                                                    <a class="mini-product__delete-link far fa-trash-alt"></a>
+                                                    <a data-bind="click: $parent.removeProductFromCart" class="mini-product__delete-link far fa-trash-alt"></a>
                                                 </div>
                                                 <!--====== End - Card for mini cart ======-->
 
 
-                                                <!--====== Card for mini cart ======-->
-                                                <div class="card-mini-product">
-                                                    <div class="mini-product">
-                                                        <div class="mini-product__image-wrapper">
-
-                                                            <a class="mini-product__link" href="product-detail.html">
-
-                                                                <img class="u-img-fluid" src="sample-images/product/men/product11.jpg" alt=""></a></div>
-                                                        <div class="mini-product__info-wrapper">
-
-                                                            <span class="mini-product__category">
-
-                                                                <a href="">Electronics</a></span>
-
-                                                            <span class="mini-product__name">
-
-                                                                <a href="product-detail.html">Nikon DSLR Camera 4k</a></span>
-
-                                                            <span class="mini-product__quantity">1 x</span>
-
-                                                            <span class="mini-product__price">$8</span></div>
-                                                    </div>
-
-                                                    <a class="mini-product__delete-link far fa-trash-alt"></a>
-                                                </div>
-                                                <!--====== End - Card for mini cart ======-->
-
-
-                                                <!--====== Card for mini cart ======-->
-                                                <div class="card-mini-product">
-                                                    <div class="mini-product">
-                                                        <div class="mini-product__image-wrapper">
-
-                                                            <a class="mini-product__link" href="product-detail.html">
-
-                                                                <img class="u-img-fluid" src="sample-images/product/men/product13.jpg" alt=""></a></div>
-                                                        <div class="mini-product__info-wrapper">
-
-                                                            <span class="mini-product__category">
-
-                                                                <a href="">Women Clothing</a></span>
-
-                                                            <span class="mini-product__name">
-
-                                                                <a href="product-detail.html">New Dress D Nice Elegant</a></span>
-
-                                                            <span class="mini-product__quantity">1 x</span>
-
-                                                            <span class="mini-product__price">$8</span></div>
-                                                    </div>
-
-                                                    <a class="mini-product__delete-link far fa-trash-alt"></a>
-                                                </div>
-                                                <!--====== End - Card for mini cart ======-->
-
-
-                                                <!--====== Card for mini cart ======-->
-                                                <div class="card-mini-product">
-                                                    <div class="mini-product">
-                                                        <div class="mini-product__image-wrapper">
-
-                                                            <a class="mini-product__link" href="product-detail.html">
-
-                                                                <img class="u-img-fluid" src="sample-images/product/men/product14.jpg" alt=""></a></div>
-                                                        <div class="mini-product__info-wrapper">
-
-                                                            <span class="mini-product__category">
-
-                                                                <a href="">Men Clothing</a></span>
-
-                                                            <span class="mini-product__name">
-
-                                                                <a href="product-detail.html">New Fashion D Nice Elegant</a></span>
-
-                                                            <span class="mini-product__quantity">1 x</span>
-
-                                                            <span class="mini-product__price">$8</span></div>
-                                                    </div>
-
-                                                    <a class="mini-product__delete-link far fa-trash-alt"></a>
-                                                </div>
-                                                <!--====== End - Card for mini cart ======-->
                                             </div>
                                             <!--====== End - Mini Product Container ======-->
 
@@ -629,7 +547,7 @@
                                             <img data-bind="attr:{src:productDetails() ? productDetails().image1 : '', 'data-zoom-image': productDetails() ? productDetails().image1 : ''}"  class="u-img-fluid"  alt=""></div>
 
                                         <div data-bind="attr:{'data-src':productDetails() ? productDetails().image2 : ''}" class="pd-o-img-wrap" >
-                                            <img data-bind="attr:{'data-src':productDetails() ? productDetails().image2 : '', 'data-zoom-image': productDetails() ? productDetails().image2 : ''}"  class="u-img-fluid"  alt=""></div>
+                                            <img data-bind="attr:{'src':productDetails() ? productDetails().image2 : '', 'data-zoom-image': productDetails() ? productDetails().image2 : ''}"  class="u-img-fluid"  alt=""></div>
 
                                             <div data-bind="attr:{'data-src':productDetails() ? productDetails().image3 : ''}" class="pd-o-img-wrap" >
                                                 <img data-bind="attr:{src:productDetails() ? productDetails().image3 : '', 'data-zoom-image': productDetails() ? productDetails().image3 : ''}"  class="u-img-fluid"  alt=""></div>
@@ -648,19 +566,19 @@
                                         <div id="pd-o-thumbnail">
                                             <div>
 
-                                                <img data-bind="attr:{src:productDetails() ? productDetails().image3 : ''}" class="u-img-fluid " alt=""></div>
+                                                <img data-bind="attr:{src:productDetails() ? productDetails().image1 : ''}" class="u-img-fluid " alt=""></div>
+                                            <div>
+
+                                                <img data-bind="attr:{src:productDetails() ? productDetails().image2 : ''}" class="u-img-fluid " alt=""></div>
                                             <div>
 
                                                 <img data-bind="attr:{src:productDetails() ? productDetails().image3 : ''}" class="u-img-fluid " alt=""></div>
                                             <div>
 
-                                                <img data-bind="attr:{src:productDetails() ? productDetails().image3 : ''}" class="u-img-fluid " alt=""></div>
+                                                <img data-bind="attr:{src:productDetails() ? productDetails().image4 : ''}" class="u-img-fluid " alt=""></div>
                                             <div>
 
-                                                <img data-bind="attr:{src:productDetails() ? productDetails().image3 : ''}" class="u-img-fluid " alt=""></div>
-                                            <div>
-
-                                                <img data-bind="attr:{src:productDetails() ? productDetails().image3 : ''}" class="u-img-fluid " alt=""></div>
+                                                <img data-bind="attr:{src:productDetails() ? productDetails().image5 : ''}" class="u-img-fluid " alt=""></div>
                                         </div>
                                     </div>
                                 </div>
@@ -746,7 +664,7 @@
                                             </div>
                                             <div class="u-s-m-b-15">
 
-                                                <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button></div>
+                                                <a data-bind="click: addToCart" class="btn btn--e-brand-b-2" >Add to Cart</a></div>
                                         </div>
                                     </form>
                                 </div>
@@ -1855,7 +1773,9 @@
 
     <script type='text/javascript' src='js/knockout-3.5.1.js'></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="js/productDetailsVM.js"></script>
+    
 
     <!--====== Noscript ======-->
     <noscript>
