@@ -38,31 +38,31 @@
       getAllFeaturedProducts()
     }
 
-    self.addToCart = (product) => {
-      var cartProducts = JSON.parse(localStorage.getItem('cartProducts'))
-      if(cartProducts && containsObject(product, cartProducts)){
-        Swal.fire({
-          title: 'Error!',
-          text: 'This Product already exists in Cart',
-          icon: 'error',
-          confirmButtonText: 'Continue Shopping',
+    // self.addToCart = (product) => {
+    //   var cartProducts = JSON.parse(localStorage.getItem('cartProducts'))
+    //   if(cartProducts && containsObject(product, cartProducts)){
+    //     Swal.fire({
+    //       title: 'Error!',
+    //       text: 'This Product already exists in Cart',
+    //       icon: 'error',
+    //       confirmButtonText: 'Continue Shopping',
         
-        })
-      }
-      else{
-        cartProducts.push(product)
-        localStorage.setItem('cartProducts', JSON.stringify(cartProducts)) 
-        self.cartProducts(JSON.parse(localStorage.getItem('cartProducts')))
-        Swal.fire({
-          title: 'Success!',
-          text: 'Product added to Cart Successfully' ,
-          icon: 'success',
-          confirmButtonText: 'Continue Shopping',
-        })
-        console.log(self.cartProducts())
-      }
+    //     })
+    //   }
+    //   else{
+    //     cartProducts.push(product)
+    //     localStorage.setItem('cartProducts', JSON.stringify(cartProducts)) 
+    //     self.cartProducts(JSON.parse(localStorage.getItem('cartProducts')))
+    //     Swal.fire({
+    //       title: 'Success!',
+    //       text: 'Product added to Cart Successfully' ,
+    //       icon: 'success',
+    //       confirmButtonText: 'Continue Shopping',
+    //     })
+    //     console.log(self.cartProducts())
+    //   }
      
-    }
+    // }
 
     self.removeProductFromCart = (product) => {
       console.log(product)
