@@ -9,6 +9,15 @@
     else{
       self.cartProducts(JSON.parse(localStorage.getItem('cartProducts')))
     }
+
+    self.totalPrice = ko.computed(function() {
+        var total = 0
+        for(let i =0; i<self.cartProducts().length; i++){
+            
+            total += self.cartProducts()[i].price * self.cartProducts()[i].quantity
+        }
+        return total
+    }, self);
   
     for(let i=0; i<self.cartProducts().length; i++){
         self.cartQuantities().push(self.cartProducts()[i].quantity)
@@ -59,6 +68,10 @@
         }
       
     }
+
+
+    console.log(self.totalPrice())
+
 
   
   function containsObject(obj, list) {

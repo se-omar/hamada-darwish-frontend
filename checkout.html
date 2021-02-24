@@ -523,7 +523,6 @@
         <!--====== End - Main Header ======-->
 
 
-
         <!--====== App Content ======-->
         <div class="app-content">
 
@@ -541,7 +540,7 @@
                                         <a href="index.html">Home</a></li>
                                     <li class="is-marked">
 
-                                        <a href="cart.html">Cart</a></li>
+                                        <a href="checkout.html">Checkout</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -551,106 +550,7 @@
             <!--====== End - Section 1 ======-->
 
 
-            <!--====== Section 2 ======-->
-            <div class="u-s-p-b-60">
-
-                <!--====== Section Intro ======-->
-                <div class="section__intro u-s-m-b-60">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section__text-wrap">
-                                    <h1 class="section__heading u-c-secondary">SHOPPING CART</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Intro ======-->
-
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 u-s-m-b-30">
-                                <div class="table-responsive">
-                                    <table class="table-p">
-                                        <tbody data-bind="foreach: cartProducts">
-                                            <!--====== Row ======-->
-                                            <tr>
-                                                <td>
-                                                    <div class="table-p__box">
-                                                        <div class="table-p__img-wrap">
-
-                                                            <img data-bind="attr: {src: image1? image1 : ''}" class="u-img-fluid"  alt=""></div>
-                                                        <div class="table-p__info">
-
-                                                            <span class="table-p__name">
-
-                                                                <a data-bind="text: name, attr: {href: 'product-detail.html?id=' + Id}" ></a></span>
-
-                                                            <span class="table-p__category">
-
-                                                                <a data-bind="text: brand.name"></a></span>
-                                                            <ul class="table-p__variant-list">
-                                                                <li>
-
-                                                                    <span data-bind="text: 'Size: '+ size.toUpperCase()"></span></li>
-                                                                
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-
-                                                    <span data-bind="text: price + ' EGP'" class="table-p__price"></span></td>
-                                                <td>
-                                                    <div class="table-p__input-counter-wrap">
-
-                                                        <!--====== Input Counter ======-->
-                                                        <div class="input-counter">
-
-                                                            <span  data-bind="click: $parent.decrementQuantity.bind($data, $index())" class="input-counter__minus fas fa-minus"></span>
-
-                                                            <input disabled data-bind="value: $parent.cartQuantities()[$index()]" class="input-counter__text input-counter--text-primary-style" type="text"  data-min="1" data-max="1000">
-
-                                                            <span data-bind="click: $parent.incrementQuantity.bind($data, $index())" class="input-counter__plus fas fa-plus"></span></div>
-                                                        <!--====== End - Input Counter ======-->
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="table-p__del-wrap">
-
-                                                        <a data-bind="click: $parent.removeProductFromCart.bind($data, $index())" class="far fa-trash-alt table-p__delete-link"></a></div>
-                                                </td>
-                                            </tr>
-                                            <!--====== End - Row ======-->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="route-box">
-                                    <div class="route-box__g1">
-
-                                        <a class="route-box__link" href="index.html"><i class="fas fa-long-arrow-alt-left"></i>
-
-                                            <span>CONTINUE SHOPPING</span></a></div>
-                                    <div class="route-box__g2">
-
-                                        <a data-bind="click: clearCart" class="route-box__link"><i class="fas fa-trash"></i>
-                                            <span>CLEAR CART</span></a>
-                                       </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Content ======-->
-            </div>
-            <!--====== End - Section 2 ======-->
-
+     
 
             <!--====== Section 3 ======-->
             <div class="u-s-p-b-60">
@@ -658,31 +558,226 @@
                 <!--====== Section Content ======-->
                 <div class="section__content">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 u-s-m-b-30">
-                                <form class="f-cart">
-                                    <div class="row" data-bind="if: cartProducts().length > 0">
-                                     
-                                        <div class="col-lg-12 col-md-12 u-s-m-b-30">
-                                            <div class="f-cart__pad-box">
-                                                <div class="u-s-m-b-30">
-                                                    <table class="f-cart__table">
-                                                        <tbody>
-                                                        
-                                                            <tr>
-                                                                <td>SUBTOTAL</td>
-                                                                <td data-bind="text: totalPrice"></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div>
+                        <div class="checkout-f">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h1 class="checkout-f__h1">DELIVERY INFORMATION</h1>
+                                    <form class="checkout-f__delivery">
+                                        <div class="u-s-m-b-30">
+                                            <div class="u-s-m-b-15">
 
-                                                    <a data-bind="attr: {href: 'checkout.html'}" class="btn btn--e-brand-b-2" type="button"> PROCEED TO CHECKOUT</a></div>
+                                            </div>
+
+                                            <!--====== First Name, Last Name ======-->
+                                            <div class="gl-inline">
+                                                <div class="u-s-m-b-15">
+
+                                                    <label class="gl-label" for="billing-fname">FIRST NAME *</label>
+
+                                                    <input class="input-text input-text--primary-style" type="text" id="billing-fname" data-bill=""></div>
+                                                <div class="u-s-m-b-15">
+
+                                                    <label class="gl-label" for="billing-lname">LAST NAME *</label>
+
+                                                    <input class="input-text input-text--primary-style" type="text" id="billing-lname" data-bill=""></div>
+                                            </div>
+                                            <!--====== End - First Name, Last Name ======-->
+
+
+                                            <!--====== E-MAIL ======-->
+                                            <div class="u-s-m-b-15">
+
+                                                <label class="gl-label" for="billing-email">E-MAIL *</label>
+
+                                                <input class="input-text input-text--primary-style" type="text" id="billing-email" data-bill=""></div>
+                                            <!--====== End - E-MAIL ======-->
+
+
+                                            <!--====== PHONE ======-->
+                                            <div class="u-s-m-b-15">
+
+                                                <label class="gl-label" for="billing-phone">PHONE *</label>
+
+                                                <input class="input-text input-text--primary-style" type="text" id="billing-phone" data-bill=""></div>
+                                            <!--====== End - PHONE ======-->
+
+
+                                            <!--====== Street Address ======-->
+                                            <div class="u-s-m-b-15">
+                                                <label class="gl-label" for="billing-street">STREET ADDRESS *</label>
+                                                <input class="input-text input-text--primary-style" type="text" id="billing-street" placeholder="Street name" data-bill="">
+                                            </div>
+
+                                            <div class="u-s-m-b-15">
+                                                <input class="input-text input-text--primary-style" type="text" id="billing-street-optional" placeholder="Building" data-bill=""> 
+                                            </div>
+
+                                            <div class="u-s-m-b-15">
+                                                <input class="input-text input-text--primary-style" type="text" id="billing-street-optional" placeholder="Floor" data-bill="">
+                                            </div>
+
+                                            <div class="u-s-m-b-15">
+                                                <input class="input-text input-text--primary-style" type="text" id="billing-street-optional" placeholder="Apartment" data-bill="">
+                                            </div>
+                                            <!--====== End - Street Address ======-->
+
+
+                                            <!--====== Country ======-->
+                                            <div class="u-s-m-b-15">
+
+                                                <!--====== Select Box ======-->
+
+                                                <label class="gl-label" for="billing-country">GOVERNORATE *</label><select class="select-box select-box--primary-style" id="billing-country" data-bill="">
+                                                    <option selected value="">Choose Governorate</option>
+                                                    <option value="uae">United Arab Emirate (UAE)</option>
+                                                    <option value="uk">United Kingdom (UK)</option>
+                                                    <option value="us">United States (US)</option>
+                                                </select>
+                                                <!--====== End - Select Box ======-->
+                                            </div>
+                                            <!--====== End - Country ======-->
+
+
+                                            <!--====== Town / City ======-->
+                                            <div class="u-s-m-b-15">
+
+                                                <label class="gl-label" for="billing-town-city">TOWN/CITY *</label>
+
+                                                <input class="input-text input-text--primary-style" type="text" id="billing-town-city" data-bill=""></div>
+                                            <!--====== End - Town / City ======-->
+
+
+
+                                           
+                                        
+
+                                               
+                                            </div>
+                                            <div class="u-s-m-b-10">
+
+                                                <label class="gl-label" for="order-note">ORDER NOTE</label><textarea class="text-area text-area--primary-style" id="order-note"></textarea></div>
+                                           
+                                    </form>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h1 class="checkout-f__h1">ORDER SUMMARY</h1>
+
+                                    <!--====== Order Summary ======-->
+                                    <div class="o-summary">
+                                        <div class="o-summary__section u-s-m-b-30">
+                                            <div data-bind="foreach: cartProducts" class="o-summary__item-wrap gl-scroll">
+                                                <div class="o-card">
+                                                    <div class="o-card__flex">
+                                                        <div class="o-card__img-wrap">
+
+                                                            <img class="u-img-fluid" data-bind="attr: {src: image1? image1: ''}" alt=""></div>
+                                                        <div class="o-card__info-wrap">
+
+                                                            <span class="o-card__name">
+
+                                                                <a data-bind="text: name, attr: {href: 'product-detail.html?id=' + Id}"></a></span>
+
+                                                            <span data-bind="text: 'Quantity x ' + quantity" class="o-card__quantity"></span>
+
+                                                            <span data-bind="text: price * quantity + ' EGP'" class="o-card__price"></span></div>
+                                                    </div>
+
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="o-summary__section u-s-m-b-30">
+                                            <div class="o-summary__box">
+                                                <h1 class="checkout-f__h1">SHIPPING & BILLING</h1>
+                                                <div class="ship-b">
+
+                                                    <span class="ship-b__text">Ship to:</span>
+                                                    <div class="ship-b__box u-s-m-b-10">
+                                                        <p class="ship-b__p">4247 Ashford Drive Virginia VA-20006 USA (+0) 900901904</p>
+
+                                                        <a class="ship-b__edit btn--e-transparent-platinum-b-2" data-modal="modal" data-modal-id="#edit-ship-address">Edit</a>
+                                                    </div>
+                                                    <div class="ship-b__box">
+
+                                                        <span class="ship-b__text">Bill to default billing address</span>
+
+                                                        <a class="ship-b__edit btn--e-transparent-platinum-b-2" data-modal="modal" data-modal-id="#edit-ship-address">Edit</a></div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+                                        
+                                        <div class="o-summary__section u-s-m-b-30">
+                                            <div class="o-summary__box">
+
+                                                <h1 class="checkout-f__h1">SHIPPING & BILLING</h1>
+
+
+                                                <table class="o-summary__table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>SHIPPING</td>
+                                                            <td data-bind="text: shippingCost() + ' EGP'"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>TAX</td>
+                                                            <td>0 EGP</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>SUBTOTAL</td>
+                                                            <td data-bind="text: totalPrice() + ' EGP'"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>GRAND TOTAL</td>
+                                                            <td data-bind="text: grandTotal() + ' EGP'"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="o-summary__section u-s-m-b-30">
+                                            <div class="o-summary__box">
+                                                <h1 class="checkout-f__h1">PAYMENT INFORMATION</h1>
+                                                <form class="checkout-f__payment">
+                                                    <div class="u-s-m-b-30">
+
+                                                        <!--====== Radio Box ======-->
+                                                        <div class="radio-box">
+
+                                                            <input type="radio" id="cash-on-delivery" name="payment">
+                                                            <div class="radio-box__state radio-box__state--primary">
+
+                                                                <label class="radio-box__label" for="cash-on-delivery">Cash on Delivery</label></div>
+                                                        </div>
+                                                        <!--====== End - Radio Box ======-->
+
+                                                        <span class="gl-text u-s-m-t-6">Pay Upon Cash on delivery.</span>
+                                                    </div>
+                                                   
+                                                    <div class="u-s-m-b-30">
+                                                        <!--====== Radio Box ======-->
+                                                        <div class="radio-box">
+
+                                                            <input type="radio" id="pay-with-card" name="payment">
+                                                            <div class="radio-box__state radio-box__state--primary">
+
+                                                                <label class="radio-box__label" for="pay-with-card">Pay With Credit / Debit Card</label></div>
+                                                        </div>
+                                                        <!--====== End - Radio Box ======-->
+
+                                                        <span class="gl-text u-s-m-t-6">International Credit Cards.</span>
+                                                    </div>
+                                                   
+                                                    
+                                                    <div>
+
+                                                        <button class="btn btn--e-brand-b-2" type="submit">PLACE ORDER</button></div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                    <!--====== End - Order Summary ======-->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -694,8 +789,8 @@
         <!--====== End - App Content ======-->
 
 
-      <!--====== Main Footer ======-->
-      <footer>
+       <!--====== Main Footer ======-->
+       <footer>
         <div class="outer-footer">
             <div class="container">
                 <div class="row">
@@ -852,6 +947,7 @@
         </div> -->
     </footer>
     <!--====== End - Main Footer ======-->
+
     </div>
     <!--====== End - Main App ======-->
 
@@ -876,9 +972,10 @@
 
     <!--====== App ======-->
     <script src="js/app.js"></script>
+
     <script type='text/javascript' src='js/knockout-3.5.1.js'></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="js/cartVM.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
+    <script src="js/checkoutVM.js"></script>
 
     <!--====== Noscript ======-->
     <noscript>
