@@ -29,7 +29,7 @@
     </div>
 
     <!--====== Main App ======-->
-    <div id="app">
+    <div data-bind="if: currentUser" id="app">
 
       
         <!--====== Main Header ======-->
@@ -428,77 +428,7 @@
                                     <!-- <li>
 
                                         <a href="wishlist.html"><i class="far fa-heart"></i></a></li> -->
-                                    <li data-bind="class:cartProducts().length == 0 ? '' : 'has-dropdown'" >
-
-                                        <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
-
-                                            <span data-bind="text: cartProducts().length" class="total-item-round"></span></a>
-
-                                        <!--====== Dropdown ======-->
-
-                                        <span class="js-menu-toggle"></span>
-                                        <div class="mini-cart">
-
-                                            <!--====== Mini Product Container ======-->
-                                            <div data-bind="foreach: cartProducts" class="mini-product-container gl-scroll u-s-m-b-15">
-
-                                                 <!--====== Card for mini cart ======-->
-                                                 <div class="card-mini-product">
-                                                    <div class="mini-product">
-                                                        <div class="mini-product__image-wrapper">
-
-                                                            <a data-bind="attr:{href: 'product-detail.html?id=' + Id}" class="mini-product__link" >
-
-                                                                <img data-bind="attr: {src: image1? image1: ''}" class="u-img-fluid" alt=""></a></div>
-                                                        <div class="mini-product__info-wrapper">
-
-                                                            <span class="mini-product__category">
-
-                                                                <a data-bind="text: category.name" href=""></a></span>
-
-                                                            <span class="mini-product__name">
-
-                                                                <a data-bind="text: name, attr:{href: 'product-detail.html?id=' + Id}" ></a></span>
-
-                                                            <span data-bind="text: quantity + ' x '" class="mini-product__quantity"></span>
-                                                            
-
-                                                            <span data-bind="text: price" class="mini-product__price"></span>
-
-                                                            <span class="mini-product__name">
-
-                                                                <span data-bind="text: size.toUpperCase()" class="mini-product__price"></span></span>
-  
-                                                        </div>
-                                                            
-                                                    </div>
-
-                                                    <a data-bind="click: $parent.removeProductFromCart" class="mini-product__delete-link far fa-trash-alt"></a>
-                                                </div>
-                                                <!--====== End - Card for mini cart ======-->
-
-
-                                            </div>
-                                            <!--====== End - Mini Product Container ======-->
-
-
-                                            <!--====== Mini Product Statistics ======-->
-                                            <div class="mini-product-stat">
-                                                <div class="mini-total">
-
-                                                    <span class="subtotal-text">SUBTOTAL</span>
-
-                                                    <span class="subtotal-value">$16</span></div>
-                                                <div class="mini-action">
-
-                                                    <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO CHECKOUT</a>
-
-                                                    <a class="mini-link btn--e-transparent-secondary-b-2" href="cart.html">VIEW CART</a></div>
-                                            </div>
-                                            <!--====== End - Mini Product Statistics ======-->
-                                        </div>
-                                        <!--====== End - Dropdown ======-->
-                                    </li>
+                                   
                                 </ul>
                                 <!--====== End - List ======-->
                             </div>
@@ -514,176 +444,114 @@
         <!--====== End - Main Header ======-->
 
 
+        <div class="u-s-p-y-60">
 
-        <!--====== App Content ======-->
-        <div class="app-content">
-
-            <!--====== Section 1 ======-->
-            <div class="u-s-p-y-60">
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-                        <div class="breadcrumb">
-                            <div class="breadcrumb__wrap">
-                                <ul class="breadcrumb__list">
-                                    <li class="has-separator">
-
-                                        <a href="index.html">Home</a></li>
-                                    <li class="is-marked">
-
-                                        <a href="cart.html">Cart</a></li>
-                                </ul>
-                            </div>
+          <!--====== Section Intro ======-->
+          <div class="section__intro u-s-m-b-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section__text-wrap">
+                            <h1 class="section__heading u-c-secondary">ADD PRODUCT</h1>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--====== End - Section 1 ======-->
-
-
-            <!--====== Section 2 ======-->
-            <div class="u-s-p-b-60">
-
-                <!--====== Section Intro ======-->
-                <div class="section__intro u-s-m-b-60">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section__text-wrap">
-                                    <h1 class="section__heading u-c-secondary">SHOPPING CART</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Intro ======-->
-
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 u-s-m-b-30">
-                                <div class="table-responsive">
-                                    <table class="table-p">
-                                        <tbody data-bind="foreach: cartProducts">
-                                            <!--====== Row ======-->
-                                            <tr>
-                                                <td>
-                                                    <div class="table-p__box">
-                                                        <div class="table-p__img-wrap">
-
-                                                            <img data-bind="attr: {src: image1? image1 : ''}" class="u-img-fluid"  alt=""></div>
-                                                        <div class="table-p__info">
-
-                                                            <span class="table-p__name">
-
-                                                                <a data-bind="text: name, attr: {href: 'product-detail.html?id=' + Id}" ></a></span>
-
-                                                            <span class="table-p__category">
-
-                                                                <a data-bind="text: brand.name"></a></span>
-                                                            <ul class="table-p__variant-list">
-                                                                <li>
-
-                                                                    <span data-bind="text: 'Size: '+ size.toUpperCase()"></span></li>
-                                                                
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-
-                                                    <span data-bind="text: price + ' EGP'" class="table-p__price"></span></td>
-                                                <td>
-                                                    <div class="table-p__input-counter-wrap">
-
-                                                        <!--====== Input Counter ======-->
-                                                        <div class="input-counter">
-
-                                                            <span  data-bind="click: $parent.decrementQuantity.bind($data, $index())" class="input-counter__minus fas fa-minus"></span>
-
-                                                            <input disabled data-bind="value: $parent.cartQuantities()[$index()]" class="input-counter__text input-counter--text-primary-style" type="text"  data-min="1" data-max="1000">
-
-                                                            <span data-bind="click: $parent.incrementQuantity.bind($data, $index())" class="input-counter__plus fas fa-plus"></span></div>
-                                                        <!--====== End - Input Counter ======-->
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="table-p__del-wrap">
-
-                                                        <a data-bind="click: $parent.removeProductFromCart.bind($data, $index())" class="far fa-trash-alt table-p__delete-link"></a></div>
-                                                </td>
-                                            </tr>
-                                            <!--====== End - Row ======-->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="route-box">
-                                    <div class="route-box__g1">
-
-                                        <a class="route-box__link" href="index.html"><i class="fas fa-long-arrow-alt-left"></i>
-
-                                            <span>CONTINUE SHOPPING</span></a></div>
-                                    <div class="route-box__g2">
-
-                                        <a data-bind="click: clearCart" class="route-box__link"><i class="fas fa-trash"></i>
-                                            <span>CLEAR CART</span></a>
-                                       </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Content ======-->
-            </div>
-            <!--====== End - Section 2 ======-->
-
-
-            <!--====== Section 3 ======-->
-            <div class="u-s-p-b-60">
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 u-s-m-b-30">
-                                <form class="f-cart">
-                                    <div class="row" data-bind="if: cartProducts().length > 0">
-                                     
-                                        <div class="col-lg-12 col-md-12 u-s-m-b-30">
-                                            <div class="f-cart__pad-box">
-                                                <div class="u-s-m-b-30">
-                                                    <table class="f-cart__table">
-                                                        <tbody>
-                                                        
-                                                            <tr>
-                                                                <td>SUBTOTAL</td>
-                                                                <td data-bind="text: totalPrice"></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div>
-
-                                                    <a data-bind="attr: {href: 'checkout.html'}" class="btn btn--e-brand-b-2" type="button"> PROCEED TO CHECKOUT</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Content ======-->
-            </div>
-            <!--====== End - Section 3 ======-->
         </div>
-        <!--====== End - App Content ======-->
+        <!--====== End - Section Intro ======-->
 
+
+                       <!--====== Section Content ======-->
+                       <div class="section__content">
+                        <div class="container">
+                            <div class="checkout-f">
+                             <form class="checkout-f__delivery">
+                                <h1 class="checkout-f__h1">ADD PRODUCT DETAILS</h1>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                            <div class="u-s-m-b-30">
+                                                       
+                                                <!--====== E-MAIL ======-->
+                                                <div class="u-s-m-b-15">
+                                                    <label class="gl-label" for="billing-email">NAME </label>
+                                                    <input data-bind="value: brandName" class="input-text input-text--primary-style" type="text" id="billing-email" data-bill="">
+                                                </div>
+
+                                                <div class="u-s-m-b-15">
+                                                    <label class="gl-label" for="billing-email">MATERIAL </label>
+                                                    <input data-bind="value: brandName" class="input-text input-text--primary-style" type="text" id="billing-email" data-bill="">
+                                                </div>
+
+                                                <div class="u-s-m-b-15">
+                                                    <label class="gl-label" for="billing-email">PRICE </label>
+                                                    <input class="input-text input-text--primary-style" type="number" id="billing-email" data-bill="">
+                                                </div>                                                                                                 
+
+                                                <div class="u-s-m-b-10">
+                                                    <label class="gl-label" for="order-note">DESCRIPTION</label><textarea data-bind="value: brandDescription"  class="text-area text-area--primary-style" id="order-note"></textarea>
+                                                </div>    
+
+                                                </div>                                               
+                                       
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="u-s-m-b-30">
+                                                   
+                                            <!--====== E-MAIL ======-->
+                                            
+
+                                            <div class="u-s-m-b-15">
+                                                <label class="gl-label" for="billing-email">IMAGE 1</label>
+                                                <input data-bind="event: { change: getImageFromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
+                                            </div>
+                                            
+                                            <div class="u-s-m-b-15">
+                                                <label class="gl-label" for="billing-email">IMAGE 2</label>
+                                                <input data-bind="event: { change: getImageFromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
+                                            </div>
+
+                                            <div class="u-s-m-b-15">
+                                                <label class="gl-label" for="billing-email">IMAGE 3</label>
+                                                <input data-bind="event: { change: getImageFromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
+                                            </div>
+
+                                            <div class="u-s-m-b-15">
+                                                <label class="gl-label" for="billing-email">IMAGE 4</label>
+                                                <input data-bind="event: { change: getImageFromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
+                                            </div>
+
+                                            <div class="u-s-m-b-15">
+                                                <label class="gl-label" for="billing-email">IMAGE 5</label>
+                                                <input data-bind="event: { change: getImageFromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
+                                            </div>
+
+                                                <!--====== Check Box ======-->
+                                            <div class="check-box">
+                                                <input type="checkbox" id="term-and-condition">
+                                                <div class="check-box__state check-box__state--primary">
+                                                    <label class="check-box__label" for="term-and-condition">Add this Product to the Featured Products</label></div>
+                                            </div>
+                                            <!--====== End - Check Box ======-->
+
+                                            </div>                                               
+                                   
+                                </div>
+                                
+                                </div>
+                                <div class="gl-inline">
+                                    <div class="u-s-m-b-30">
+
+                                        <a data-bind="click: addBrand" class="btn btn--e-transparent-brand-b-2" type="submit">ADD PRODUCT</a></div>
+                                    
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--====== End - Section Content ======-->
+
+        </div>
 
       <!--====== Main Footer ======-->
       <footer>
@@ -846,6 +714,9 @@
     </div>
     <!--====== End - Main App ======-->
 
+    <div class="u-s-m-t-60" data-bind="ifnot: currentUser">
+        <h1 style="text-align: center;">ACCESS DENIED</h1>
+    </div>
 
     <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
     <script>
@@ -869,7 +740,7 @@
     <script src="js/app.js"></script>
     <script type='text/javascript' src='js/knockout-3.5.1.js'></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="js/cartVM.js"></script>
+    <script src="js/adminPageVMs/addBrandVM.js"></script>
 
     <!--====== Noscript ======-->
     <noscript>

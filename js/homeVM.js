@@ -6,6 +6,7 @@
     self.allCategories = ko.observableArray()
     self.currentCategory = ko.observable('FEATURED PRODUCTS')
     self.cartProducts = ko.observableArray()
+    self.currentUser = ko.observable()
     if(!localStorage.getItem('cartProducts')){
       localStorage.setItem('cartProducts', JSON.stringify([]))
     }
@@ -18,7 +19,9 @@
     getAllBrands()
     getAllCategories()
 
-  
+    if(localStorage.getItem('loginToken')){
+      refreshCurrentUser()
+  }
     
     self.filterProductsByCat = async (category) => {
       self.currentCategory(category.name)
@@ -113,6 +116,14 @@
   } else{
       return false
   }
+}
+
+function refreshCurrentUser() {
+  $.post("http://localhost:3000/api/refreshCurrentUser",{token: localStorage.getItem('loginToken')},
+   function(data) {
+      console.log(data)
+      self.currentUser(data.user_id)
+  })
 }
 
 

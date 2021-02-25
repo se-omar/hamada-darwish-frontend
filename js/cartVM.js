@@ -3,12 +3,17 @@
     var self = this;
     self.cartProducts = ko.observableArray()
     self.cartQuantities = ko.observableArray()
+    self.currentUser = ko.observable()
     if(!localStorage.getItem('cartProducts')){
       localStorage.setItem('cartProducts', JSON.stringify([]))
     }
     else{
       self.cartProducts(JSON.parse(localStorage.getItem('cartProducts')))
     }
+
+    if(localStorage.getItem('loginToken')){
+      refreshCurrentUser()
+  }
 
     self.totalPrice = ko.computed(function() {
         var total = 0
@@ -80,6 +85,14 @@
   } else{
       return false
   }
+}
+
+function refreshCurrentUser() {
+  $.post("http://localhost:3000/api/refreshCurrentUser",{token: localStorage.getItem('loginToken')},
+   function(data) {
+      console.log(data)
+      self.currentUser(data.user_id)
+  })
 }
 
    }

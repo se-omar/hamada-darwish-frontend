@@ -6,6 +6,7 @@ function brandProductsViewModel() {
     self.allCategories = ko.observableArray()
     self.currentCategory = ko.observable()
     self.cartProducts = ko.observableArray()
+    self.currentUser = ko.observable()
     self.allBrands = ko.observable()
     if(!localStorage.getItem('cartProducts')){
       localStorage.setItem('cartProducts', JSON.stringify([]))
@@ -18,6 +19,9 @@ function brandProductsViewModel() {
     getAllCategories()
     getAllBrands()
 
+    if(localStorage.getItem('loginToken')){
+      refreshCurrentUser()
+  }
 
     self.removeProductFromCart = (product) => {
         console.log(product)
@@ -114,5 +118,13 @@ function brandProductsViewModel() {
       var match = regex.exec(url);
       return match ? match[1] : "";
     }
+
+    function refreshCurrentUser() {
+      $.post("http://localhost:3000/api/refreshCurrentUser",{token: localStorage.getItem('loginToken')},
+       function(data) {
+          console.log(data)
+          self.currentUser(data.user_id)
+      })
+  }
 }
 ko.applyBindings(new brandProductsViewModel());
