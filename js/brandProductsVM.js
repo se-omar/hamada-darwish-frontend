@@ -6,6 +6,7 @@ function brandProductsViewModel() {
     self.allCategories = ko.observableArray()
     self.currentCategory = ko.observable()
     self.cartProducts = ko.observableArray()
+    self.allBrands = ko.observable()
     if(!localStorage.getItem('cartProducts')){
       localStorage.setItem('cartProducts', JSON.stringify([]))
     }
@@ -15,6 +16,7 @@ function brandProductsViewModel() {
 
     getBrandDetailsAndProducts()
     getAllCategories()
+    getAllBrands()
 
 
     self.removeProductFromCart = (product) => {
@@ -65,6 +67,25 @@ function brandProductsViewModel() {
           console.log(self.allCategories())
         })
     }
+
+    function getAllBrands() {
+      $.getJSON("http://localhost:3000/api/getAllBrands", function(data) {
+        self.allBrands(data.brands)
+        var slider = tns({
+          container: '.my-slider',
+          items: self.allBrands().length -1,
+          slideBy: 1,
+          mouseDrag: true,
+          nav: false,
+          loop: true,
+          touch: true,
+          autoplay: false,
+          swipeAngle: 60,
+          controls: false
+        });
+        console.log(self.allBrands())
+      })
+  }
 
     self.filterProductsByCatAndBrand = async (category) => {
         self.currentCategory(category.name)

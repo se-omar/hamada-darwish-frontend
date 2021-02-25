@@ -248,6 +248,7 @@
         var $brandSlider = $('#brand-slider');
         // Check if brand slider on the page
         if ($brandSlider.length) {
+            // debugger
             var itemPerLine = $brandSlider.data('item');
             $brandSlider.on('initialize.owl.carousel', function () {
                 $(this).closest('.slider-fouc').removeAttr('class');

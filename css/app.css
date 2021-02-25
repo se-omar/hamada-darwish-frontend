@@ -2843,6 +2843,7 @@ input::-ms-clear {
 .promotion-o {
   position: relative;
   display: block;
+  width: 50px;
   transition: -webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),

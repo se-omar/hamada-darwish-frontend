@@ -2,7 +2,7 @@
    function homeViewModel() {
     var self = this;
     self.filteredProducts = ko.observableArray()
-    self.allBrands = ko.observableArray()
+    self.allBrands = ko.observableArray([])
     self.allCategories = ko.observableArray()
     self.currentCategory = ko.observable('FEATURED PRODUCTS')
     self.cartProducts = ko.observableArray()
@@ -17,6 +17,8 @@
     getAllFeaturedProducts()
     getAllBrands()
     getAllCategories()
+
+  
     
     self.filterProductsByCat = async (category) => {
       self.currentCategory(category.name)
@@ -77,10 +79,22 @@
           self.filteredProducts(data.featuredProducts)
         })
     }
-
+ 
     function getAllBrands() {
         $.getJSON("http://localhost:3000/api/getAllBrands", function(data) {
           self.allBrands(data.brands)
+          var slider = tns({
+            container: '.my-slider',
+            items: self.allBrands().length -1,
+            slideBy: 1,
+            mouseDrag: true,
+            nav: false,
+            loop: true,
+            touch: true,
+            autoplay: false,
+            swipeAngle: 60,
+            controls: false
+          });
           console.log(self.allBrands())
         })
     }

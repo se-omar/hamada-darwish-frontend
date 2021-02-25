@@ -14,6 +14,7 @@
 
     <!--====== Vendor Css ======-->
     <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
 
     <!--====== Utility-Spacing ======-->
     <link rel="stylesheet" href="css/utility.css">
@@ -413,58 +414,25 @@
                     </div>
                 </div>
                 <!--====== End - Section Intro ======-->
-                
-                        <!--====== Section Content ======-->
-                        <div class="section__content">
-                            <div class="container">
-        
-                                <!--====== Brand Slider ======-->
-                                <div class="slider-fouc">
-                                    <div data-bind="foreach: allBrands" class="owl-carousel" id="brand-slider" data-item="5">
-                                        <div class="promotion-o u-s-m-r-20">
-                                            <div class="aspect aspect--bg-grey aspect--square">
-        
-                                                <img class="aspect__img" data-bind="attr: {src: image}" alt=""></div>
-                                            <div class="promotion-o__content">
-        
-                                                <a data-bind="text: name, attr: {href: 'brand-products.html?id=' + Id}" class="promotion-o__link btn--e-white-brand" href="brand-products.html"></a></div>
-                                        </div>
 
-                                        <!-- <div class="promotion-o u-s-m-r-20">
-                                            <div class="aspect aspect--bg-grey aspect--square">
-        
-                                                <img class="aspect__img" src="sample-images/promo/promo-img-4.jpg" alt=""></div>
-                                            <div class="promotion-o__content">
-        
-                                                <a class="promotion-o__link btn--e-white-brand" href="brand-products.html">Brand 1</a></div>
-                                        </div>
 
-                                        <div class="promotion-o u-s-m-r-20">
-                                            <div class="aspect aspect--bg-grey aspect--square">
-        
-                                                <img class="aspect__img" src="sample-images/promo/promo-img-4.jpg" alt=""></div>
-                                            <div class="promotion-o__content">
-        
-                                                <a class="promotion-o__link btn--e-white-brand" href="brand-products.html">Brand 1</a></div>
-                                        </div>
+            <!--====== Section Content ======-->
+            <div class="section__content u-s-m-b-80">
+                <div class="container">
+                            <div data-bind="foreach: allBrands" class="my-slider" >
+                                <div class="promotion-o u-s-m-r-20">
+                                    <div class="aspect aspect--bg-grey aspect--square">
 
-                                        <div class="promotion-o u-s-m-r-20">
-                                            <div class="aspect aspect--bg-grey aspect--square">
-        
-                                                <img class="aspect__img" src="sample-images/promo/promo-img-4.jpg" alt=""></div>
-                                            <div class="promotion-o__content">
-        
-                                                <a class="promotion-o__link btn--e-white-brand" href="brand-products.html">Brand 1</a></div>
-                                        </div> -->
-                                       
-                                    </div>
+                                        <img class="aspect__img" data-bind="attr: {src: image}" alt=""></div>
+                                    <div class="promotion-o__content">
+
+                                        <a data-bind="text: name, attr: {href: 'brand-products.html?id=' + Id}" class="promotion-o__link btn--e-white-brand"></a></div>
                                 </div>
-                                <!--====== End - Brand Slider ======-->
                             </div>
-                        </div>
-                        <!--====== End - Section Content ======-->
-                    </div>
-                    <!--====== End - Section 1 ======-->
+
+                </div>
+            </div>                
+            <!--====== End - Section 1 ======-->
 
 
 
@@ -1022,6 +990,7 @@
 
     <!--====== Vendor Js ======-->
     <script src="js/vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 
     <!--====== jQuery Shopnav plugin ======-->
     <script src="js/jquery.shopnav.js"></script>
