@@ -1633,6 +1633,18 @@ input::-ms-clear {
   transform: translateY(-50%) scale(0.8);
   transition: all 0.2s ease 0s;
 }
+.product-r__action-wrap-edit-brand {
+  width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  -webkit-transform: translateY(-50%) scale(0.8);
+  transform: translateY(-50%) scale(0.8);
+  transition: all 0.2s ease 0s;
+}
+
 .product-r__action-list {
   display: -ms-flexbox;
   display: flex;
@@ -2844,7 +2856,7 @@ input::-ms-clear {
 .promotion-o {
   position: relative;
   display: block;
-  width: 50px;
+  width: 270px;
   transition: -webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),

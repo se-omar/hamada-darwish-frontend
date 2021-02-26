@@ -474,21 +474,45 @@
                                                 <!--====== E-MAIL ======-->
                                                 <div class="u-s-m-b-15">
                                                     <label class="gl-label" for="billing-email">NAME </label>
-                                                    <input data-bind="value: brandName" class="input-text input-text--primary-style" type="text" id="billing-email" data-bill="">
+                                                    <input data-bind="value: productName" class="input-text input-text--primary-style" type="text" id="billing-email" data-bill="">
                                                 </div>
 
                                                 <div class="u-s-m-b-15">
                                                     <label class="gl-label" for="billing-email">MATERIAL </label>
-                                                    <input data-bind="value: brandName" class="input-text input-text--primary-style" type="text" id="billing-email" data-bill="">
+                                                    <input data-bind="value: productMaterial" class="input-text input-text--primary-style" type="text" id="billing-email" data-bill="">
                                                 </div>
 
                                                 <div class="u-s-m-b-15">
                                                     <label class="gl-label" for="billing-email">PRICE </label>
-                                                    <input class="input-text input-text--primary-style" type="number" id="billing-email" data-bill="">
-                                                </div>                                                                                                 
+                                                    <input data-bind="value: productPrice" class="input-text input-text--primary-style" type="number" id="billing-email" data-bill="">
+                                                </div>   
+                                                
+                                                <div class="u-s-m-b-30">
+                                                    <!--====== Select Box ======-->
+                                                    <label class="gl-label" for="address-country">CATEGORY</label>
+                                                    <select data-bind="options: allCategories,
+                                                                        optionsText: 'name',
+                                                                        value: category,
+                                                                        optionsCaption: 'Choose...'" class="select-box select-box--primary-style" id="address-country">
+                                                       
+                                                    </select>
+                                                    <!--====== End - Select Box ======-->
+                                                </div>
+
+                                                <div class="u-s-m-b-30">
+                                                    <!--====== Select Box ======-->
+                                                    <label class="gl-label" for="address-country">BRAND</label>
+                                                    <select data-bind="options: allBrands,
+                                                                        optionsText: 'name',
+                                                                        value: brand,
+                                                                        optionsCaption: 'Choose...'" class="select-box select-box--primary-style" id="address-country">
+                                                       
+                                                    </select>
+                                                    <!--====== End - Select Box ======-->
+                                                </div>
 
                                                 <div class="u-s-m-b-10">
-                                                    <label class="gl-label" for="order-note">DESCRIPTION</label><textarea data-bind="value: brandDescription"  class="text-area text-area--primary-style" id="order-note"></textarea>
+                                                    <label class="gl-label" for="order-note">DESCRIPTION</label><textarea data-bind="value: productDescription"  class="text-area text-area--primary-style" id="order-note"></textarea>
                                                 </div>    
 
                                                 </div>                                               
@@ -503,32 +527,32 @@
 
                                             <div class="u-s-m-b-15">
                                                 <label class="gl-label" for="billing-email">IMAGE 1</label>
-                                                <input data-bind="event: { change: getImageFromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
+                                                <input data-bind="event: { change: getImage1FromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
                                             </div>
                                             
                                             <div class="u-s-m-b-15">
                                                 <label class="gl-label" for="billing-email">IMAGE 2</label>
-                                                <input data-bind="event: { change: getImageFromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
+                                                <input data-bind="event: { change: getImage2FromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
                                             </div>
 
                                             <div class="u-s-m-b-15">
                                                 <label class="gl-label" for="billing-email">IMAGE 3</label>
-                                                <input data-bind="event: { change: getImageFromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
+                                                <input data-bind="event: { change: getImage3FromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
                                             </div>
 
                                             <div class="u-s-m-b-15">
                                                 <label class="gl-label" for="billing-email">IMAGE 4</label>
-                                                <input data-bind="event: { change: getImageFromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
+                                                <input data-bind="event: { change: getImage4FromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
                                             </div>
 
                                             <div class="u-s-m-b-15">
                                                 <label class="gl-label" for="billing-email">IMAGE 5</label>
-                                                <input data-bind="event: { change: getImageFromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
+                                                <input data-bind="event: { change: getImage5FromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
                                             </div>
 
                                                 <!--====== Check Box ======-->
                                             <div class="check-box">
-                                                <input type="checkbox" id="term-and-condition">
+                                                <input data-bind="checked: isFeatured" type="checkbox" id="term-and-condition">
                                                 <div class="check-box__state check-box__state--primary">
                                                     <label class="check-box__label" for="term-and-condition">Add this Product to the Featured Products</label></div>
                                             </div>
@@ -542,7 +566,7 @@
                                 <div class="gl-inline">
                                     <div class="u-s-m-b-30">
 
-                                        <a data-bind="click: addBrand" class="btn btn--e-transparent-brand-b-2" type="submit">ADD PRODUCT</a></div>
+                                        <a data-bind="click: addProduct" class="btn btn--e-transparent-brand-b-2" type="submit">ADD PRODUCT</a></div>
                                     
                                 </div>
                             </form>
@@ -740,7 +764,7 @@
     <script src="js/app.js"></script>
     <script type='text/javascript' src='js/knockout-3.5.1.js'></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="js/adminPageVMs/addBrandVM.js"></script>
+    <script src="js/adminPageVMs/addProductVM.js"></script>
 
     <!--====== Noscript ======-->
     <noscript>

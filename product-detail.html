@@ -542,19 +542,19 @@
                             <div class="pd u-s-m-b-30">
                                 <div class="slider-fouc pd-wrap">
                                     <div id="pd-o-initiate">
-                                        <div data-bind="attr:{'data-src':productDetails() ? productDetails().image1 : ''}" class="pd-o-img-wrap" >
+                                        <div data-bind="if: productDetails() && productDetails().image1, attr:{'data-src':productDetails() ? productDetails().image1 : ''}" class="pd-o-img-wrap" >
                                             <img data-bind="attr:{src:productDetails() ? productDetails().image1 : '', 'data-zoom-image': productDetails() ? productDetails().image1 : ''}"  class="u-img-fluid"  alt=""></div>
 
-                                        <div data-bind="attr:{'data-src':productDetails() ? productDetails().image2 : ''}" class="pd-o-img-wrap" >
+                                        <div data-bind="if: productDetails() && productDetails().image2,attr:{'data-src':productDetails() ? productDetails().image2 : ''}" class="pd-o-img-wrap" >
                                             <img data-bind="attr:{'src':productDetails() ? productDetails().image2 : '', 'data-zoom-image': productDetails() ? productDetails().image2 : ''}"  class="u-img-fluid"  alt=""></div>
 
-                                            <div data-bind="attr:{'data-src':productDetails() ? productDetails().image3 : ''}" class="pd-o-img-wrap" >
+                                            <div data-bind="if: productDetails() && productDetails().image3,attr:{'data-src':productDetails() ? productDetails().image3 : ''}" class="pd-o-img-wrap" >
                                                 <img data-bind="attr:{src:productDetails() ? productDetails().image3 : '', 'data-zoom-image': productDetails() ? productDetails().image3 : ''}"  class="u-img-fluid"  alt=""></div>
 
-                                                <div data-bind="attr:{'data-src':productDetails() ? productDetails().image4 : ''}" class="pd-o-img-wrap" >
-                                                    <img data-bind="attr:{src:productDetails() ? productDetails().image4 : '', 'data-zoom-image': productDetails() ? productDetails().image4 : ''}"  class="u-img-fluid"  alt=""></div>
+                                            <div data-bind="if: productDetails() && productDetails().image4,attr:{'data-src':productDetails() ? productDetails().image4 : ''}" class="pd-o-img-wrap" >
+                                                <img data-bind="attr:{src:productDetails() ? productDetails().image4 : '', 'data-zoom-image': productDetails() ? productDetails().image4 : ''}"  class="u-img-fluid"  alt=""></div>
 
-                                                    <div data-bind="attr:{'data-src':productDetails() ? productDetails().image5 : ''}" class="pd-o-img-wrap" >
+                                                    <div data-bind="if: productDetails() && productDetails().image5,attr:{'data-src':productDetails() ? productDetails().image5 : ''}" class="pd-o-img-wrap" >
                                                         <img data-bind="attr:{src:productDetails() ? productDetails().image5 : '', 'data-zoom-image': productDetails() ? productDetails().image5 : ''}"  class="u-img-fluid"  alt=""></div>
                                     </div>
 
@@ -563,19 +563,19 @@
                                 <div class="u-s-m-t-15">
                                     <div class="slider-fouc">
                                         <div id="pd-o-thumbnail">
-                                            <div>
+                                            <div data-bind="if: productDetails() && productDetails().image1">
 
                                                 <img data-bind="attr:{src:productDetails() ? productDetails().image1 : ''}" class="u-img-fluid " alt=""></div>
-                                            <div>
+                                            <div data-bind="if: productDetails() && productDetails().image2">
 
                                                 <img data-bind="attr:{src:productDetails() ? productDetails().image2 : ''}" class="u-img-fluid " alt=""></div>
-                                            <div>
+                                            <div data-bind="if: productDetails() && productDetails().image3">
 
                                                 <img data-bind="attr:{src:productDetails() ? productDetails().image3 : ''}" class="u-img-fluid " alt=""></div>
-                                            <div>
+                                            <div data-bind="if: productDetails() && productDetails().image4">
 
                                                 <img data-bind="attr:{src:productDetails() ? productDetails().image4 : ''}" class="u-img-fluid " alt=""></div>
-                                            <div>
+                                            <div data-bind="if: productDetails() && productDetails().image5">
 
                                                 <img data-bind="attr:{src:productDetails() ? productDetails().image5 : ''}" class="u-img-fluid " alt=""></div>
                                         </div>

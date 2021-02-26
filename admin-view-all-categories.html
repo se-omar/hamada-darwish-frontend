@@ -446,62 +446,78 @@
 
         <div class="u-s-p-y-60">
 
-          <!--====== Section Intro ======-->
-          <div class="section__intro u-s-m-b-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section__text-wrap">
-                            <h1 class="section__heading u-c-secondary">EDIT CATEGORY</h1>
+        
+
+             <!--====== Section 3 ======-->
+
+             <!--====== Section Intro ======-->
+             <div class="section__intro ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section__text-wrap">
+                                <h1 class="section__heading u-c-secondary u-s-m-b-12">EDIT CATEGORY</h1>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--====== End - Section Intro ======-->
+            <!--====== End - Section Intro ======-->
 
 
-                       <!--====== Section Content ======-->
-                       <div class="section__content">
-                        <div class="container">
-                            <div class="checkout-f">
-                                <div class="row">
-                                    <div class="col-lg-3"></div>
-                                    <div class="col-lg-6">
-                                        <h1 class="checkout-f__h1">EDIT CATEGORY DETAILS</h1>
-                                        <form class="checkout-f__delivery">
-                                            <div class="u-s-m-b-30">
-                                                       
-                                                <!--====== E-MAIL ======-->
-                                                <div class="u-s-m-b-15">
-                                                    <label class="gl-label" for="billing-email">NAME </label>
-                                                    <input data-bind="value: catName" class="input-text input-text--primary-style" type="text" id="billing-email" data-bill="">
+            <div class="u-s-p-y-50">
+                <div class="container">
+                    <div class="row">
+                       
+                        <div class="col-lg-12 col-md-12">
+                            <div class="shop-p">
+                                
+                                <div class="shop-p__collection">
+                                    <div data-bind="foreach: allCategories" class="row is-grid-active">
+                                        <div  class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
+                                            <div class="product-r u-h-100">
+                                                <div class="product-r__container">
+                                                    <span class="aspect aspect--bg-grey aspect--square u-d-block">
+                                                        <img class="aspect__img" data-bind="attr:{src: image? image : ''}" alt=""></span>
+                                                    <div class="product-r__action-wrap">
+                                                        <ul class="product-r__action-list">
+                                                            <li>
+            
+                                                                <a data-bind="click: $parent.deleteCat" ><i class="fas fa-trash-alt"></i></a></li>
+                                                            <li>
+            
+                                                                <a  data-bind="attr: {href: 'admin-edit-cat.html?id=' + Id}" ><i class="fas fa-edit"></i></a></li>
+                                                            <li>
+            
+                                                               
+                                                            <li>
+            
+                                                                
+                                                        </ul>
+                                                    </div>
                                                 </div>
+                                                <div class="product-r__info-wrap">
+                                                    <div class="product-r__n-p-wrap">
+                                                        <span class="product-r__name">
+                                                            <span data-bind="text: name"></span>
+                                                        </span>     
+                                                       </div>
+            
+                                                    <span data-bind="text: description" class="product-r__description"></span>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                                    <div class="u-s-m-b-10">
-                                                        <label class="gl-label" for="order-note">DESCRIPTION</label><textarea data-bind="value: catDescription"  class="text-area text-area--primary-style" id="order-note"></textarea>
-                                                    </div>                                                                                                   
-
-                                                    <div class="u-s-m-b-15">
-                                                        <label class="gl-label" for="billing-email">IMAGE </label>
-                                                        <input data-bind="event: { change: getImageFromInput }" class="input-text input-text--primary-style" type="file" id="billing-email" accept="image/*">
-                                                    </div>
-
-                                                    <div class="gl-inline">
-                                                        <div class="u-s-m-b-30">
-        
-                                                            <a data-bind="click: editCat" class="btn btn--e-transparent-brand-b-2" type="submit">EDIT CATEGORY</a></div>
-                                                        
-                                                    </div>
-                                                </div>                                               
-                                        </form>
                                     </div>
-                                    <div class="col-lg-3"></div>
+
                                 </div>
+                               
                             </div>
                         </div>
                     </div>
-                    <!--====== End - Section Content ======-->
+                </div>
+            </div>
+            <!--====== End - Section 3 ======-->
 
         </div>
 
@@ -692,7 +708,7 @@
     <script src="js/app.js"></script>
     <script type='text/javascript' src='js/knockout-3.5.1.js'></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="js/adminPageVMs/editCatVM.js"></script>
+    <script src="js/adminPageVMs/viewAllCatsVM.js"></script>
 
     <!--====== Noscript ======-->
     <noscript>
