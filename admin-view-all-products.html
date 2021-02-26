@@ -469,7 +469,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section__text-wrap">
-                                <h1 data-bind="text: currentCategory().toUpperCase()" class="section__heading u-c-secondary u-s-m-b-12"></h1>
+                                <h1 data-bind="text: currentCategory()? currentCategory().toUpperCase() : ''" class="section__heading u-c-secondary u-s-m-b-12"></h1>
     
                                 <span class="section__span u-c-silver">PRODUCTS CHOSEN FOR YOU</span>
                             </div>
@@ -488,6 +488,29 @@
                                 <h1 class="shop-w-master__heading u-s-m-b-30"><i class="fas fa-filter u-s-m-r-8"></i>
 
                                     <span>FILTERS</span></h1>
+
+                                    <div class="shop-w-master__sidebar">
+                                        <div class="u-s-m-b-30">
+                                            <div class="shop-w shop-w--style">
+                                                <div class="shop-w__intro-wrap">
+                                                    <h1 class="shop-w__h">FEATURED</h1>
+                                                    <span class="fas fa-minus shop-w__toggle" data-target="#s-category" data-toggle="collapse"></span>
+                                                </div>
+                                                <div class="shop-w__wrap collapse show" id="s-category">
+                                                    <ul  class="shop-w__category-list gl-scroll">
+                                                        <li>
+                                                            <a data-bind="text: 'Featured Products', click: filterProductsByFeatured" ></a>
+                                                        </li>               
+                                                                                     
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                      
+                                    </div>
+
+
                                 <div class="shop-w-master__sidebar">
                                     <div class="u-s-m-b-30">
                                         <div class="shop-w shop-w--style">
@@ -549,23 +572,26 @@
                                         <div  class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
                                             <div class="product-r u-h-100">
                                                 <div class="product-r__container">
-            
+                                                    <span data-bind="if: is_featured" class="u-s-m-l-50">FEATURED</span>
                                                     <a data-bind="attr:{href: 'product-detail.html?id=' + Id}" class="aspect aspect--bg-grey aspect--square u-d-block">
             
                                                         <img class="aspect__img" data-bind="attr:{src: image1}" alt=""></a>
                                                     <div class="product-r__action-wrap">
                                                         <ul class="product-r__action-list">
                                                             <li>
-            
-                                                                <a data-bind="click: $parent.deleteProduct" ><i class="fas fa-trash-alt"></i></a></li>
+                                                                <a data-bind="click: $parent.deleteProduct" ><i class="fas fa-trash-alt"></i></a>
+                                                            </li>
                                                             <li>
+                                                                <a  data-bind="attr: {href: 'admin-edit-product.html?id=' + Id}" ><i class="fas fa-edit"></i></a>
+                                                            </li>
             
-                                                                <a  data-bind="attr: {href: 'admin-edit-product.html?id=' + Id}" ><i class="fas fa-edit"></i></a></li>
-                                                            <li>
-            
-                                                               
-                                                            <li>
-            
+                                                            <li data-bind="ifnot: is_featured, click: $parent.addToFeatured" >
+                                                                <a><i class="fas fa-plus"></i></a>
+                                                            </li>
+
+                                                            <li data-bind="if: is_featured, click: $parent.removeFromFeatured">
+                                                                <a><i class="fas fa-minus"></i></a>
+                                                            </li>
                                                                 
                                                         </ul>
                                                     </div>

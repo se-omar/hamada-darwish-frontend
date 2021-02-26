@@ -30,8 +30,17 @@ self.filterProductsByCat = async (category) => {
   })
   }
 
+  self.filterProductsByFeatured = async () => {
+    self.currentCategory('FEATURED PRODUCTS')
+    await $.getJSON("http://localhost:3000/api/getAllFeaturedProducts", function(data) {
+      self.filteredProducts(data.featuredProducts)
+      console.log(self.filteredProducts())
+  })
+  } 
+
   self.getAllProducts = () => {
     getAllProducts()
+    console.log(self.filteredProducts())
   }
 
   self.deleteProduct = (product) => {
@@ -50,6 +59,34 @@ self.filterProductsByCat = async (category) => {
            location.reload()
   })
       }
+    })
+  }
+
+  self.addToFeatured = (product) => {
+    $.post("http://localhost:3000/api/addToFeatured", {Id: product.Id}, function(data) {
+      console.log(data.message)
+      Swal.fire({
+        title: 'Added to Featured Products!',
+        icon: 'success',
+        confirmButtonText: 'Close',
+      
+      }).then((result) => {
+        location.reload()
+      })  
+    })
+  }
+
+  self.removeFromFeatured = (product) => {
+    $.post("http://localhost:3000/api/removeFromFeatured", {Id: product.Id}, function(data) {
+      console.log(data.message)
+      Swal.fire({
+        title: 'Removed from Featured Products!',
+        icon: 'success',
+        confirmButtonText: 'Close',
+      
+      }).then((result) => {
+        location.reload()
+      })  
     })
   }
 
