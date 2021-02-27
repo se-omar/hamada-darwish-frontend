@@ -19,6 +19,7 @@
     self.productName = ko.observable()
     self.productDescription = ko.observable()
     self.productSizes = ko.observable()
+    self.host = ko.observable('http://localhost:3000/')
 
     if(localStorage.getItem('loginToken')){
       refreshCurrentUser()
@@ -73,7 +74,15 @@ self.getImage5FromInput = (data, e) =>{
         contentType: false, 
         processData: false, 
         success: function(msg) {
-          console.log(msg)
+          Swal.fire({
+            title: 'Product Updated!',
+            text: 'Product Updated successfully',
+            icon: 'success',
+            confirmButtonText: 'close',
+          
+          }).then(result => {
+            window.location.href = 'admin-view-all-products.html'
+          })
         }
       });
   
@@ -111,6 +120,11 @@ function getUrlParam(param) {
         getAllBrands()
     })
  }
+
+ self.signout = () => {
+  localStorage.removeItem('loginToken')
+  window.location.href = 'index.html'
+}
 
  function getAllCategories() {
     $.getJSON("http://localhost:3000/api/getAllCategories", function(data) {

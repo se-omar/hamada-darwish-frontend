@@ -2,6 +2,7 @@ function viewAllBrandsViewModel() {
     var self = this;
 self.allBrands = ko.observableArray()
 self.currentUser = ko.observable()
+self.host = ko.observable('http://localhost:3000/')
 
 getAllBrands()
 
@@ -35,6 +36,11 @@ if(localStorage.getItem('loginToken')){
       self.allBrands(data.brands)
       console.log(self.allBrands())
     })
+}
+
+self.signout = () => {
+  localStorage.removeItem('loginToken')
+  window.location.href = 'index.html'
 }
 
 function refreshCurrentUser() {

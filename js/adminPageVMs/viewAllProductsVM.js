@@ -5,6 +5,7 @@ self.allBrands = ko.observableArray([])
 self.allCategories = ko.observableArray()
 self.currentCategory = ko.observable('ALL PRODUCTS')
 self.currentUser = ko.observable()
+self.host = ko.observable('http://localhost:3000/')
 
 getAllProducts()
 getAllBrands()
@@ -103,6 +104,11 @@ function getAllCategories() {
     self.allCategories(data.categories)
     console.log(self.allCategories())
   })
+}
+
+self.signout = () => {
+  localStorage.removeItem('loginToken')
+  window.location.href = 'index.html'
 }
 
 

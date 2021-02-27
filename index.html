@@ -78,21 +78,60 @@
                                         <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Account">
 
                                             <a><i class="far fa-user-circle"></i></a>
-
+    
                                             <!--====== Dropdown ======-->
-
+    
                                             <span class="js-menu-toggle"></span>
-                                            <ul style="width:120px">
+                                            <!-- ko ifnot: currentUser -->
+                                            <ul  style="width:120px"> 
                                                 <li>
-                                                    <a href=""><i class="fas fa-lock u-s-m-r-6"></i>
+                                                    <a href="signin.html"><i class="fas fa-lock u-s-m-r-6"></i>
                                                         <span>Signin</span></a>
-                                                    </li>
-                                                    
-                                                <li>
-                                                    <a href=""><i class="fas fa-lock-open u-s-m-r-6"></i>
-                                                        <span>Signout</span></a>
-                                                    </li>
+                                                </li>
+    
                                             </ul>
+                                            <!-- /ko -->
+    
+                                            <!-- ko if: currentUser -->
+                                            <ul style="width:180px"> 
+                                                <li>
+                                                    <a href="admin-add-brand.html"><i class="fas fa-lock u-s-m-r-6"></i>
+                                                        <span>add brand</span></a>
+                                                </li>
+    
+                                                <li>
+                                                    <a href="admin-add-cat.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                        <span>add category</span></a>
+                                                </li>
+    
+                                                <li>
+                                                    <a href="admin-add-product.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                        <span>add product</span></a>
+                                                </li>
+    
+    
+                                                <li>
+                                                    <a href="admin-view-all-brands.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                        <span>view all brands</span></a>
+                                                </li>
+    
+                                                <li>
+                                                    <a href="admin-view-all-categories.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                        <span>view all categories</span></a>
+                                                </li>
+    
+                                                <li>
+                                                    <a href="admin-view-all-products.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                        <span>view all products</span></a>
+                                                </li>
+    
+                                                <li>
+                                                    <a data-bind="click: signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                        <span>sign out</span></a>
+                                                </li>
+                                            </ul>
+                                            <!-- /ko -->
+    
                                             <!--====== End - Dropdown ======-->
                                         </li>
 
@@ -238,7 +277,7 @@
 
                 <a data-bind="attr:{href: 'product-detail.html?id=' + Id}" class="mini-product__link" >
 
-                    <img data-bind="attr: {src: image1? image1: ''}" class="u-img-fluid" alt=""></a></div>
+                    <img data-bind="attr: {src: image1? $parent.host() + image1: ''}" class="u-img-fluid" alt=""></a></div>
             <div class="mini-product__info-wrapper">
 
                 <span class="mini-product__category">
@@ -277,7 +316,7 @@
 
                                                         <span class="subtotal-text">SUBTOTAL</span>
 
-                                                        <span class="subtotal-value">$16</span></div>
+                                                        <span data-bind="text: totalPrice() + ' EGP'" class="subtotal-value"></span></div>
                                                     <div class="mini-action">
 
                                                         <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO CHECKOUT</a>
@@ -412,7 +451,7 @@
                                 <div class="promotion-o u-s-m-r-20">
                                     <div class="aspect aspect--bg-grey aspect--square">
 
-                                        <img class="aspect__img" data-bind="attr: {src: image}" alt=""></div>
+                                        <img class="aspect__img" data-bind="attr: {src: image? $parent.host() + image : ''}" alt=""></div>
                                     <div class="promotion-o__content">
 
                                         <a data-bind="text: name, attr: {href: 'brand-products.html?id=' + Id}" class="promotion-o__link btn--e-white-brand"></a></div>
@@ -518,7 +557,7 @@
             
                                                     <a data-bind="attr:{href: 'product-detail.html?id=' + Id}" class="aspect aspect--bg-grey aspect--square u-d-block">
             
-                                                        <img class="aspect__img" data-bind="attr:{src: image1}" alt=""></a>
+                                                        <img class="aspect__img" data-bind="attr:{src: $parent.host() + image1}" alt=""></a>
                                                     <!-- <div class="product-r__action-wrap">
                                                         <ul class="product-r__action-list">
                                                             <li>

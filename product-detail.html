@@ -79,19 +79,56 @@
                                         <!--====== Dropdown ======-->
 
                                         <span class="js-menu-toggle"></span>
-                                        <ul style="width:120px">
-                                            
+                                        <!-- ko ifnot: currentUser -->
+                                        <ul  style="width:120px"> 
                                             <li>
+                                                <a href="signin.html"><i class="fas fa-lock u-s-m-r-6"></i>
+                                                    <span>Signin</span></a>
+                                            </li>
 
-                                                <a href=""><i class="fas fa-lock u-s-m-r-6"></i>
-
-                                                    <span>Signin</span></a></li>
-                                            <li>
-
-                                                <a href=""><i class="fas fa-lock-open u-s-m-r-6"></i>
-
-                                                    <span>Signout</span></a></li>
                                         </ul>
+                                        <!-- /ko -->
+
+                                        <!-- ko if: currentUser -->
+                                        <ul style="width:180px"> 
+                                            <li>
+                                                <a href="admin-add-brand.html"><i class="fas fa-lock u-s-m-r-6"></i>
+                                                    <span>add brand</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a href="admin-add-cat.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>add category</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a href="admin-add-product.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>add product</span></a>
+                                            </li>
+
+
+                                            <li>
+                                                <a href="admin-view-all-brands.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>view all brands</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a href="admin-view-all-categories.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>view all categories</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a href="admin-view-all-products.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>view all products</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a data-bind="click: signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>sign out</span></a>
+                                            </li>
+                                        </ul>
+                                        <!-- /ko -->
+
                                         <!--====== End - Dropdown ======-->
                                     </li>
                                    
@@ -144,258 +181,14 @@
                                 <ul class="ah-list ah-list--design2 ah-list--link-color-secondary">
                                     <li>
 
-                                        <a href="">HOME</a></li>
-                                    <li class="has-dropdown">
-
-                                        <a>OUR PRODUCTS<i class="u-s-m-l-6"></i></a>
-
-                                        <!--====== Dropdown ======-->
-                                        <script type="text/html">
-                                        <span class="js-menu-toggle"></span>
-                                        <ul style="width:170px">
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Home<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:118px">
-                                                    <li>
-
-                                                        <a href="index.html">Home 1</a></li>
-                                                    <li>
-
-                                                        <a href="index.html">Home 2</a></li>
-                                                    <li>
-
-                                                        <a href="index.html">Home 3</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li>
-
-                                                        <a href="">Signin / Already Registered</a></li>
-                                                    <li>
-
-                                                        <a href="">Signup / Register</a></li>
-                                                    <li>
-
-                                                        <a href="">Lost Password</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a href="">Dashboard<i class="i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                        <a href="">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                        <!--====== Dropdown ======-->
-
-                                                        <span class="js-menu-toggle"></span>
-                                                        <ul style="width:180px">
-                                                            <li>
-
-                                                                <a href="">Edit Profile</a></li>
-                                                            <li>
-
-                                                                <a href="">Edit Address Book</a></li>
-                                                            <li>
-
-                                                                <a href="">Manage Order</a></li>
-                                                        </ul>
-                                                        <!--====== End - Dropdown ======-->
-                                                    </li>
-                                                    <li>
-
-                                                        <a href="dash-my-profile.html">My Profile</a></li>
-                                                    <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                        <a href="dash-address-book.html">Address Book<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                        <!--====== Dropdown ======-->
-
-                                                        <span class="js-menu-toggle"></span>
-                                                        <ul style="width:180px">
-                                                            <li>
-
-                                                                <a href="dash-address-make-default.html">Address Make Default</a></li>
-                                                            <li>
-
-                                                                <a href="dash-address-add.html">Add New Address</a></li>
-                                                            <li>
-
-                                                                <a href="dash-address-edit.html">Edit Address Book</a></li>
-                                                        </ul>
-                                                        <!--====== End - Dropdown ======-->
-                                                    </li>
-                                                    <li>
-
-                                                        <a href="dash-track-order.html">Track Order</a></li>
-                                                    <li>
-
-                                                        <a href="dash-my-order.html">My Orders</a></li>
-                                                    <li>
-
-                                                        <a href="dash-payment-option.html">My Payment Options</a></li>
-                                                    <li>
-
-                                                        <a href="dash-cancellation.html">My Returns & Cancellations</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Empty<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li>
-
-                                                        <a href="empty-search.html">Empty Search</a></li>
-                                                    <li>
-
-                                                        <a href="empty-cart.html">Empty Cart</a></li>
-                                                    <li>
-
-                                                        <a href="empty-wishlist.html">Empty Wishlist</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Product Details<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li>
-
-                                                        <a href="product-detail.html">Product Details</a></li>
-                                                    <li>
-
-                                                        <a href="product-detail-variable.html">Product Details Variable</a></li>
-                                                    <li>
-
-                                                        <a href="product-detail-affiliate.html">Product Details Affiliate</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Shop Grid Layout<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li>
-
-                                                        <a href="shop-grid-left.html">Shop Grid Left Sidebar</a></li>
-                                                    <li>
-
-                                                        <a href="shop-grid-right.html">Shop Grid Right Sidebar</a></li>
-                                                    <li>
-
-                                                        <a href="shop-grid-full.html">Shop Grid Full Width</a></li>
-                                                    <li>
-
-                                                        <a href="">Shop Side Version 2</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Shop List Layout<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li>
-
-                                                        <a href="shop-list-left.html">Shop List Left Sidebar</a></li>
-                                                    <li>
-
-                                                        <a href="shop-list-right.html">Shop List Right Sidebar</a></li>
-                                                    <li>
-
-                                                        <a href="shop-list-full.html">Shop List Full Width</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li>
-
-                                                <a href="cart.html">Cart</a></li>
-                                            <li>
-
-                                                <a href="wishlist.html">Wishlist</a></li>
-                                            <li>
-
-                                                <a href="checkout.html">Checkout</a></li>
-                                            <li>
-
-                                                <a href="faq.html">FAQ</a></li>
-                                            <li>
-
-                                                <a href="about.html">About us</a></li>
-                                            <li>
-
-                                                <a href="contact.html">Contact</a></li>
-                                            <li>
-
-                                                <a href="404.html">404</a></li>
-                                        </ul>
-                                    </script>
-                                        <!--====== End - Dropdown ======-->
+                                        <a href="index.html">HOME</a>
                                     </li>
+                             
                                     <li class="has-dropdown">
-
                                         <a>ABOUT US<i class=" u-s-m-l-6"></i></a>
 
-                                        <!--====== Dropdown ======-->
-
-                                        <!-- <span class="js-menu-toggle"></span>
-                                        <ul style="width:200px">
-                                            <li>
-
-                                                <a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                            <li>
-
-                                                <a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            <li>
-
-                                                <a href="blog-sidebar-none.html">Blog Sidebar None</a></li>
-                                            <li>
-
-                                                <a href="blog-masonry.html">Blog Masonry</a></li>
-                                            <li>
-
-                                                <a href="blog-detail.html">Blog Details</a></li>
-                                        </ul> -->
-                                        <!--====== End - Dropdown ======-->
                                     </li>
-                                    <li>
-
-                                        <a href="">SPECIAL PRODUCTS</a></li>
+                                   
                                     <li>
 
                                         <a href="">CONTACT US</a></li>
@@ -441,14 +234,14 @@
                                             <!--====== Mini Product Container ======-->
                                             <div data-bind="foreach: cartProducts" class="mini-product-container gl-scroll u-s-m-b-15">
 
-                                                <!--====== Card for mini cart ======-->
-                                                <div class="card-mini-product">
+                                                 <!--====== Card for mini cart ======-->
+                                                 <div class="card-mini-product">
                                                     <div class="mini-product">
                                                         <div class="mini-product__image-wrapper">
 
                                                             <a data-bind="attr:{href: 'product-detail.html?id=' + Id}" class="mini-product__link" >
 
-                                                                <img data-bind="attr: {src: image1? image1: ''}" class="u-img-fluid" alt=""></a></div>
+                                                                <img data-bind="attr: {src: image1? $parent.host() + image1: ''}" class="u-img-fluid" alt=""></a></div>
                                                         <div class="mini-product__info-wrapper">
 
                                                             <span class="mini-product__category">
@@ -487,7 +280,7 @@
 
                                                     <span class="subtotal-text">SUBTOTAL</span>
 
-                                                    <span class="subtotal-value">$16</span></div>
+                                                    <span data-bind="text: totalPrice() + ' EGP'" class="subtotal-value"></span></div>
                                                 <div class="mini-action">
 
                                                     <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO CHECKOUT</a>
@@ -542,20 +335,20 @@
                             <div class="pd u-s-m-b-30">
                                 <div class="slider-fouc pd-wrap">
                                     <div id="pd-o-initiate">
-                                        <div data-bind="if: productDetails() && productDetails().image1, attr:{'data-src':productDetails() ? productDetails().image1 : ''}" class="pd-o-img-wrap" >
-                                            <img data-bind="attr:{src:productDetails() ? productDetails().image1 : '', 'data-zoom-image': productDetails() ? productDetails().image1 : ''}"  class="u-img-fluid"  alt=""></div>
+                                        <div data-bind="if: productDetails() && productDetails().image1, attr:{'data-src':productDetails() ? host() + productDetails().image1 : ''}" class="pd-o-img-wrap" >
+                                            <img data-bind="attr:{src:productDetails() ? host() +productDetails().image1 : '', 'data-zoom-image': productDetails() ? host() + host() + productDetails().image1 : ''}"  class="u-img-fluid"  alt=""></div>
 
-                                        <div data-bind="if: productDetails() && productDetails().image2,attr:{'data-src':productDetails() ? productDetails().image2 : ''}" class="pd-o-img-wrap" >
-                                            <img data-bind="attr:{'src':productDetails() ? productDetails().image2 : '', 'data-zoom-image': productDetails() ? productDetails().image2 : ''}"  class="u-img-fluid"  alt=""></div>
+                                    <div data-bind="if: productDetails() && productDetails().image2,attr:{'data-src':productDetails() ? host() + productDetails().image2 : ''}" class="pd-o-img-wrap" >
+                                            <img data-bind="attr:{'src':productDetails() ? host() + productDetails().image2 : '', 'data-zoom-image': productDetails() ? host() + productDetails().image2 : ''}"  class="u-img-fluid"  alt=""></div>
 
-                                            <div data-bind="if: productDetails() && productDetails().image3,attr:{'data-src':productDetails() ? productDetails().image3 : ''}" class="pd-o-img-wrap" >
-                                                <img data-bind="attr:{src:productDetails() ? productDetails().image3 : '', 'data-zoom-image': productDetails() ? productDetails().image3 : ''}"  class="u-img-fluid"  alt=""></div>
+                                            <div data-bind="if: productDetails() && productDetails().image3,attr:{'data-src':productDetails() ? host() + productDetails().image3 : ''}" class="pd-o-img-wrap" >
+                                                <img data-bind="attr:{src:productDetails() ? host() + productDetails().image3 : '', 'data-zoom-image': productDetails() ? host() + productDetails().image3 : ''}"  class="u-img-fluid"  alt=""></div>
 
-                                            <div data-bind="if: productDetails() && productDetails().image4,attr:{'data-src':productDetails() ? productDetails().image4 : ''}" class="pd-o-img-wrap" >
-                                                <img data-bind="attr:{src:productDetails() ? productDetails().image4 : '', 'data-zoom-image': productDetails() ? productDetails().image4 : ''}"  class="u-img-fluid"  alt=""></div>
+                                            <div data-bind="if: productDetails() && productDetails().image4,attr:{'data-src':productDetails() ? host() + productDetails().image4 : ''}" class="pd-o-img-wrap" >
+                                                <img data-bind="attr:{src:productDetails() ? host() + productDetails().image4 : '', 'data-zoom-image': productDetails() ? host() + productDetails().image4 : ''}"  class="u-img-fluid"  alt=""></div>
 
-                                                    <div data-bind="if: productDetails() && productDetails().image5,attr:{'data-src':productDetails() ? productDetails().image5 : ''}" class="pd-o-img-wrap" >
-                                                        <img data-bind="attr:{src:productDetails() ? productDetails().image5 : '', 'data-zoom-image': productDetails() ? productDetails().image5 : ''}"  class="u-img-fluid"  alt=""></div>
+                                                    <div data-bind="if: productDetails() && productDetails().image5,attr:{'data-src':productDetails() ? host() + productDetails().image5 : ''}" class="pd-o-img-wrap" >
+                                                        <img data-bind="attr:{src:productDetails() ? host() + productDetails().image5 : '', 'data-zoom-image': productDetails() ? host() + productDetails().image5 : ''}"  class="u-img-fluid"  alt=""></div>
                                     </div>
 
                                     <span class="pd-text">Click for larger zoom</span>
@@ -565,19 +358,19 @@
                                         <div id="pd-o-thumbnail">
                                             <div data-bind="if: productDetails() && productDetails().image1">
 
-                                                <img data-bind="attr:{src:productDetails() ? productDetails().image1 : ''}" class="u-img-fluid " alt=""></div>
+                                                <img data-bind="attr:{src:productDetails() ? host() + productDetails().image1 : ''}" class="u-img-fluid " alt=""></div>
                                             <div data-bind="if: productDetails() && productDetails().image2">
 
-                                                <img data-bind="attr:{src:productDetails() ? productDetails().image2 : ''}" class="u-img-fluid " alt=""></div>
+                                                <img data-bind="attr:{src:productDetails() ? host() + productDetails().image2 : ''}" class="u-img-fluid " alt=""></div>
                                             <div data-bind="if: productDetails() && productDetails().image3">
 
-                                                <img data-bind="attr:{src:productDetails() ? productDetails().image3 : ''}" class="u-img-fluid " alt=""></div>
+                                                <img data-bind="attr:{src:productDetails() ? host() + productDetails().image3 : ''}" class="u-img-fluid " alt=""></div>
                                             <div data-bind="if: productDetails() && productDetails().image4">
 
-                                                <img data-bind="attr:{src:productDetails() ? productDetails().image4 : ''}" class="u-img-fluid " alt=""></div>
+                                                <img data-bind="attr:{src:productDetails() ? host() + productDetails().image4 : ''}" class="u-img-fluid " alt=""></div>
                                             <div data-bind="if: productDetails() && productDetails().image5">
 
-                                                <img data-bind="attr:{src:productDetails() ? productDetails().image5 : ''}" class="u-img-fluid " alt=""></div>
+                                                <img data-bind="attr:{src:productDetails() ? host() + productDetails().image5 : ''}" class="u-img-fluid " alt=""></div>
                                         </div>
                                     </div>
                                 </div>
@@ -628,23 +421,7 @@
                                             <span class="pd-detail__click-count">(20)</span></span></div> -->
                                 </div>
                                 <div class="u-s-m-b-15">
-                                    <ul class="pd-social-list">
-                                        <li>
-
-                                            <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li>
-
-                                            <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li>
-
-                                            <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li>
-
-                                            <a class="s-wa--color-hover" href="#"><i class="fab fa-whatsapp"></i></a></li>
-                                        <li>
-
-                                            <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                    </ul>
+                                    <span class="pd-detail__label" data-bind="text:productDetails() ?'Main Material: ' + productDetails().material : ''"></span>
                                 </div>
 
                               
@@ -743,53 +520,7 @@
                                                         <span>Returns accepted if product not as described.</span></li>
                                                 </ul>
                                             </div>
-                                            <div class="u-s-m-b-15">
-                                                <h4>PRODUCT INFORMATION</h4>
-                                            </div>
-                                            <div class="u-s-m-b-15">
-                                                <div class="pd-table gl-scroll">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Main Material</td>
-                                                                <td data-bind="text:productDetails() ? productDetails().material : ''"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Color</td>
-                                                                <td>Green, Blue, Red</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Sleeves</td>
-                                                                <td>Long Sleeve</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Top Fit</td>
-                                                                <td>Regular</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Print</td>
-                                                                <td>Not Printed</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Neck</td>
-                                                                <td>Round Neck</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Pieces Count</td>
-                                                                <td>1 Piece</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Occasion</td>
-                                                                <td>Casual</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Shipping Weight (kg)</td>
-                                                                <td>0.5</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                     <!--====== End - Tab 1 ======-->

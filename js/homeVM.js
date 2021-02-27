@@ -7,6 +7,7 @@
     self.currentCategory = ko.observable('FEATURED PRODUCTS')
     self.cartProducts = ko.observableArray()
     self.currentUser = ko.observable()
+    self.host = ko.observable('http://localhost:3000/')
     if(!localStorage.getItem('cartProducts')){
       localStorage.setItem('cartProducts', JSON.stringify([]))
     }
@@ -23,6 +24,15 @@
       refreshCurrentUser()
   }
     
+  self.totalPrice = ko.computed(function() {
+    var total = 0
+    for(let i =0; i<self.cartProducts().length; i++){
+        
+        total += self.cartProducts()[i].price * self.cartProducts()[i].quantity
+    }
+    return total
+}, self);
+
     self.filterProductsByCat = async (category) => {
       self.currentCategory(category.name)
      await $.post("http://localhost:3000/api/getCategoryProducts", {Id: category.Id}, function(data) {
@@ -116,6 +126,11 @@
   } else{
       return false
   }
+}
+
+self.signout = () => {
+  localStorage.removeItem('loginToken')
+  window.location.href = 'index.html'
 }
 
 function refreshCurrentUser() {

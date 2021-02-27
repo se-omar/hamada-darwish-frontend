@@ -2,6 +2,7 @@ function viewAllCatsViewModel() {
     var self = this;
 self.allCategories = ko.observableArray()
 self.currentUser = ko.observable()
+self.host = ko.observable('http://localhost:3000/')
 
 getAllCats()
 
@@ -35,6 +36,11 @@ if(localStorage.getItem('loginToken')){
       self.allCategories(data.categories)
       console.log(self.allCategories())
     })
+}
+
+self.signout = () => {
+  localStorage.removeItem('loginToken')
+  window.location.href = 'index.html'
 }
 
 function refreshCurrentUser() {

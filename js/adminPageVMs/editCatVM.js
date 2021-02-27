@@ -6,7 +6,8 @@
     self.catImage = ko.observable()
     self.catName = ko.observable()
     self.catDescription = ko.observable()
-
+    self.host = ko.observable('http://localhost:3000/')
+    
     if(localStorage.getItem('loginToken')){
       refreshCurrentUser()
   }
@@ -32,10 +33,23 @@
         contentType: false, 
         processData: false, 
         success: function(msg) {
-          console.log(msg)
+          Swal.fire({
+            title: 'Category Updated!',
+            text: 'category Updated successfully',
+            icon: 'success',
+            confirmButtonText: 'close',
+          
+          }).then(result => {
+            window.location.href = 'admin-view-all-categories.html'
+          })
         }
       });
   
+  }
+
+  self.signout = () => {
+    localStorage.removeItem('loginToken')
+    window.location.href = 'index.html'
   }
 
   function getCatDetails() {

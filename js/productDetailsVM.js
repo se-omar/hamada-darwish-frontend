@@ -7,6 +7,8 @@ function productDetailsViewModel() {
     self.selectedSize = ko.observable()
     self.currentUser = ko.observable()
     self.quantity = ko.observable(1)
+    self.host = ko.observable('http://localhost:3000/')
+    
     if(!localStorage.getItem('cartProducts')){
       localStorage.setItem('cartProducts', JSON.stringify([]))
     }
@@ -19,6 +21,16 @@ function productDetailsViewModel() {
     if(localStorage.getItem('loginToken')){
       refreshCurrentUser()
   }
+
+
+  self.totalPrice = ko.computed(function() {
+    var total = 0
+    for(let i =0; i<self.cartProducts().length; i++){
+        
+        total += self.cartProducts()[i].price * self.cartProducts()[i].quantity
+    }
+    return total
+}, self);
 
     self.removeProductFromCart = (product) => {
       console.log(product)
@@ -78,6 +90,11 @@ function productDetailsViewModel() {
 
    
     
+    self.signout = () => {
+      localStorage.removeItem('loginToken')
+      window.location.href = 'index.html'
+    }
+
     function getProductDetails() {
        $.post("http://localhost:3000/api/getProductDetails", {Id: self.productId}, function(data) {
            self.productDetails(data.productDetails)

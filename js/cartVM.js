@@ -4,6 +4,8 @@
     self.cartProducts = ko.observableArray()
     self.cartQuantities = ko.observableArray()
     self.currentUser = ko.observable()
+    self.host = ko.observable('http://localhost:3000/')
+    
     if(!localStorage.getItem('cartProducts')){
       localStorage.setItem('cartProducts', JSON.stringify([]))
     }
@@ -72,6 +74,11 @@
           self.cartProducts(cartProducts)
         }
       
+    }
+
+    self.signout = () => {
+      localStorage.removeItem('loginToken')
+      window.location.href = 'index.html'
     }
 
 

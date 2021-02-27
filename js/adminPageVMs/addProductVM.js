@@ -16,6 +16,7 @@
     self.isFeatured = ko.observable()
     self.productName = ko.observable()
     self.productDescription = ko.observable()
+    self.host = ko.observable('http://localhost:3000/')
 
     if(localStorage.getItem('loginToken')){
       refreshCurrentUser()
@@ -70,10 +71,23 @@ self.getImage5FromInput = (data, e) =>{
         contentType: false, 
         processData: false, 
         success: function(msg) {
-          console.log(msg)
+          Swal.fire({
+            title: 'Product Added!',
+            text: 'Product added successfully',
+            icon: 'success',
+            confirmButtonText: 'close',
+          
+          }).then(result => {
+            window.location.href = 'admin-view-all-products.html'
+          })
         }
       });
   
+  }
+
+  self.signout = () => {
+    localStorage.removeItem('loginToken')
+    window.location.href = 'index.html'
   }
 
 

@@ -8,12 +8,16 @@ function brandProductsViewModel() {
     self.cartProducts = ko.observableArray()
     self.currentUser = ko.observable()
     self.allBrands = ko.observable()
+    self.host = ko.observable('http://localhost:3000/')
+    
     if(!localStorage.getItem('cartProducts')){
       localStorage.setItem('cartProducts', JSON.stringify([]))
     }
     else{
       self.cartProducts(JSON.parse(localStorage.getItem('cartProducts')))
     }
+
+    
 
     getBrandDetailsAndProducts()
     getAllCategories()
@@ -22,6 +26,16 @@ function brandProductsViewModel() {
     if(localStorage.getItem('loginToken')){
       refreshCurrentUser()
   }
+
+
+  self.totalPrice = ko.computed(function() {
+    var total = 0
+    for(let i =0; i<self.cartProducts().length; i++){
+        
+        total += self.cartProducts()[i].price * self.cartProducts()[i].quantity
+    }
+    return total
+}, self);
 
     self.removeProductFromCart = (product) => {
         console.log(product)
@@ -117,6 +131,11 @@ function brandProductsViewModel() {
       var url   = decodeURIComponent(window.location.href);
       var match = regex.exec(url);
       return match ? match[1] : "";
+    }
+
+    self.signout = () => {
+      localStorage.removeItem('loginToken')
+      window.location.href = 'index.html'
     }
 
     function refreshCurrentUser() {

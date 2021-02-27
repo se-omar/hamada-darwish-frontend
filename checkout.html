@@ -14,7 +14,9 @@
     
         <!--====== Vendor Css ======-->
         <link rel="stylesheet" href="css/vendor.css">
-    
+
+    <!-- Import FawryPay CSS Library-->
+<link rel="stylesheet" href="https://atfawry.fawrystaging.com/atfawry/plugin/assets/payments/css/fawrypay-payments.css">
         <!--====== Utility-Spacing ======-->
         <link rel="stylesheet" href="css/utility.css">
     
@@ -80,19 +82,56 @@
                                         <!--====== Dropdown ======-->
 
                                         <span class="js-menu-toggle"></span>
-                                        <ul style="width:120px">
-                                            
+                                        <!-- ko ifnot: currentUser -->
+                                        <ul  style="width:120px"> 
                                             <li>
+                                                <a href="signin.html"><i class="fas fa-lock u-s-m-r-6"></i>
+                                                    <span>Signin</span></a>
+                                            </li>
 
-                                                <a href=""><i class="fas fa-lock u-s-m-r-6"></i>
-
-                                                    <span>Signin</span></a></li>
-                                            <li>
-
-                                                <a href=""><i class="fas fa-lock-open u-s-m-r-6"></i>
-
-                                                    <span>Signout</span></a></li>
                                         </ul>
+                                        <!-- /ko -->
+
+                                        <!-- ko if: currentUser -->
+                                        <ul style="width:180px"> 
+                                            <li>
+                                                <a href="admin-add-brand.html"><i class="fas fa-lock u-s-m-r-6"></i>
+                                                    <span>add brand</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a href="admin-add-cat.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>add category</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a href="admin-add-product.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>add product</span></a>
+                                            </li>
+
+
+                                            <li>
+                                                <a href="admin-view-all-brands.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>view all brands</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a href="admin-view-all-categories.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>view all categories</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a href="admin-view-all-products.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>view all products</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a data-bind="click: signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                    <span>sign out</span></a>
+                                            </li>
+                                        </ul>
+                                        <!-- /ko -->
+
                                         <!--====== End - Dropdown ======-->
                                     </li>
                                    
@@ -145,258 +184,14 @@
                                 <ul class="ah-list ah-list--design2 ah-list--link-color-secondary">
                                     <li>
 
-                                        <a href="">HOME</a></li>
-                                    <li class="has-dropdown">
-
-                                        <a>OUR PRODUCTS<i class="u-s-m-l-6"></i></a>
-
-                                        <!--====== Dropdown ======-->
-                                        <script type="text/html">
-                                        <span class="js-menu-toggle"></span>
-                                        <ul style="width:170px">
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Home<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:118px">
-                                                    <li>
-
-                                                        <a href="index.html">Home 1</a></li>
-                                                    <li>
-
-                                                        <a href="index.html">Home 2</a></li>
-                                                    <li>
-
-                                                        <a href="index.html">Home 3</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li>
-
-                                                        <a href="">Signin / Already Registered</a></li>
-                                                    <li>
-
-                                                        <a href="">Signup / Register</a></li>
-                                                    <li>
-
-                                                        <a href="">Lost Password</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a href="">Dashboard<i class="i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                        <a href="">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                        <!--====== Dropdown ======-->
-
-                                                        <span class="js-menu-toggle"></span>
-                                                        <ul style="width:180px">
-                                                            <li>
-
-                                                                <a href="">Edit Profile</a></li>
-                                                            <li>
-
-                                                                <a href="">Edit Address Book</a></li>
-                                                            <li>
-
-                                                                <a href="">Manage Order</a></li>
-                                                        </ul>
-                                                        <!--====== End - Dropdown ======-->
-                                                    </li>
-                                                    <li>
-
-                                                        <a href="dash-my-profile.html">My Profile</a></li>
-                                                    <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                        <a href="dash-address-book.html">Address Book<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                        <!--====== Dropdown ======-->
-
-                                                        <span class="js-menu-toggle"></span>
-                                                        <ul style="width:180px">
-                                                            <li>
-
-                                                                <a href="dash-address-make-default.html">Address Make Default</a></li>
-                                                            <li>
-
-                                                                <a href="dash-address-add.html">Add New Address</a></li>
-                                                            <li>
-
-                                                                <a href="dash-address-edit.html">Edit Address Book</a></li>
-                                                        </ul>
-                                                        <!--====== End - Dropdown ======-->
-                                                    </li>
-                                                    <li>
-
-                                                        <a href="dash-track-order.html">Track Order</a></li>
-                                                    <li>
-
-                                                        <a href="dash-my-order.html">My Orders</a></li>
-                                                    <li>
-
-                                                        <a href="dash-payment-option.html">My Payment Options</a></li>
-                                                    <li>
-
-                                                        <a href="dash-cancellation.html">My Returns & Cancellations</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Empty<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li>
-
-                                                        <a href="empty-search.html">Empty Search</a></li>
-                                                    <li>
-
-                                                        <a href="empty-cart.html">Empty Cart</a></li>
-                                                    <li>
-
-                                                        <a href="empty-wishlist.html">Empty Wishlist</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Product Details<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li>
-
-                                                        <a href="product-detail.html">Product Details</a></li>
-                                                    <li>
-
-                                                        <a href="product-detail-variable.html">Product Details Variable</a></li>
-                                                    <li>
-
-                                                        <a href="product-detail-affiliate.html">Product Details Affiliate</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Shop Grid Layout<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li>
-
-                                                        <a href="shop-grid-left.html">Shop Grid Left Sidebar</a></li>
-                                                    <li>
-
-                                                        <a href="shop-grid-right.html">Shop Grid Right Sidebar</a></li>
-                                                    <li>
-
-                                                        <a href="shop-grid-full.html">Shop Grid Full Width</a></li>
-                                                    <li>
-
-                                                        <a href="">Shop Side Version 2</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Shop List Layout<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li>
-
-                                                        <a href="shop-list-left.html">Shop List Left Sidebar</a></li>
-                                                    <li>
-
-                                                        <a href="shop-list-right.html">Shop List Right Sidebar</a></li>
-                                                    <li>
-
-                                                        <a href="shop-list-full.html">Shop List Full Width</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li>
-
-                                                <a href="cart.html">Cart</a></li>
-                                            <li>
-
-                                                <a href="wishlist.html">Wishlist</a></li>
-                                            <li>
-
-                                                <a href="checkout.html">Checkout</a></li>
-                                            <li>
-
-                                                <a href="faq.html">FAQ</a></li>
-                                            <li>
-
-                                                <a href="about.html">About us</a></li>
-                                            <li>
-
-                                                <a href="contact.html">Contact</a></li>
-                                            <li>
-
-                                                <a href="404.html">404</a></li>
-                                        </ul>
-                                    </script>
-                                        <!--====== End - Dropdown ======-->
+                                        <a href="index.html">HOME</a>
                                     </li>
+                             
                                     <li class="has-dropdown">
-
                                         <a>ABOUT US<i class=" u-s-m-l-6"></i></a>
 
-                                        <!--====== Dropdown ======-->
-
-                                        <!-- <span class="js-menu-toggle"></span>
-                                        <ul style="width:200px">
-                                            <li>
-
-                                                <a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                            <li>
-
-                                                <a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            <li>
-
-                                                <a href="blog-sidebar-none.html">Blog Sidebar None</a></li>
-                                            <li>
-
-                                                <a href="blog-masonry.html">Blog Masonry</a></li>
-                                            <li>
-
-                                                <a href="blog-detail.html">Blog Details</a></li>
-                                        </ul> -->
-                                        <!--====== End - Dropdown ======-->
                                     </li>
-                                    <li>
-
-                                        <a href="">SPECIAL PRODUCTS</a></li>
+                                   
                                     <li>
 
                                         <a href="">CONTACT US</a></li>
@@ -449,7 +244,7 @@
 
                                                             <a data-bind="attr:{href: 'product-detail.html?id=' + Id}" class="mini-product__link" >
 
-                                                                <img data-bind="attr: {src: image1? image1: ''}" class="u-img-fluid" alt=""></a></div>
+                                                                <img data-bind="attr: {src: image1? $parent.host() + image1: ''}" class="u-img-fluid" alt=""></a></div>
                                                         <div class="mini-product__info-wrapper">
 
                                                             <span class="mini-product__category">
@@ -488,7 +283,7 @@
 
                                                     <span class="subtotal-text">SUBTOTAL</span>
 
-                                                    <span class="subtotal-value">$16</span></div>
+                                                    <span data-bind="text: totalPrice() + ' EGP'" class="subtotal-value"></span></div>
                                                 <div class="mini-action">
 
                                                     <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO CHECKOUT</a>
@@ -661,7 +456,7 @@
                                                     <div class="o-card__flex">
                                                         <div class="o-card__img-wrap">
 
-                                                            <img class="u-img-fluid" data-bind="attr: {src: image1? image1: ''}" alt=""></div>
+                                                            <img class="u-img-fluid" data-bind="attr: {src: image1? $parent.host() + image1: ''}" alt=""></div>
                                                         <div class="o-card__info-wrap">
 
                                                             <span class="o-card__name">
@@ -730,20 +525,20 @@
                                             <div class="o-summary__box">
                                                 <h1 class="checkout-f__h1">PAYMENT INFORMATION</h1>
                                                 <form class="checkout-f__payment">
-                                                    <div class="u-s-m-b-30">
+                                                    <!-- <div class="u-s-m-b-30"> -->
 
                                                         <!--====== Radio Box ======-->
-                                                        <div class="radio-box">
+                                                        <!-- <div class="radio-box">
 
                                                             <input type="radio" id="cash-on-delivery" name="payment">
                                                             <div class="radio-box__state radio-box__state--primary">
 
                                                                 <label class="radio-box__label" for="cash-on-delivery">Cash on Delivery</label></div>
-                                                        </div>
+                                                        </div> -->
                                                         <!--====== End - Radio Box ======-->
 
-                                                        <span class="gl-text u-s-m-t-6">Pay Upon Cash on delivery.</span>
-                                                    </div>
+                                                        <!-- <span class="gl-text u-s-m-t-6">Pay Upon Cash on delivery.</span>
+                                                    </div> -->
                                                    
                                                     <div class="u-s-m-b-30">
                                                         <!--====== Radio Box ======-->
@@ -761,8 +556,7 @@
                                                    
                                                     
                                                     <div>
-
-                                                        <button class="btn btn--e-brand-b-2" type="submit">PLACE ORDER</button></div>
+                                                        <button data-bind="click: checkout" class="btn btn--e-brand-b-2">PROCEED TO PAYMENT</button></div>
                                                 </form>
                                             </div>
                                         </div>
@@ -967,6 +761,9 @@
     <script type='text/javascript' src='js/knockout-3.5.1.js'></script>
     <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
     <script src="js/checkoutVM.js"></script>
+
+    <!-- Import FawryPay Staging JavaScript Library-->
+<script type="text/javascript" src="https://atfawry.fawrystaging.com/atfawry/plugin/assets/payments/js/fawrypay-payments.js"></script>
 
     <!--====== Noscript ======-->
     <noscript>
