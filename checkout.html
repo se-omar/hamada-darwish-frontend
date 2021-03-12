@@ -15,8 +15,7 @@
         <!--====== Vendor Css ======-->
         <link rel="stylesheet" href="css/vendor.css">
 
-    <!-- Import FawryPay CSS Library-->
-<link rel="stylesheet" href="https://atfawry.fawrystaging.com/atfawry/plugin/assets/payments/css/fawrypay-payments.css">
+   
         <!--====== Utility-Spacing ======-->
         <link rel="stylesheet" href="css/utility.css">
     
@@ -223,77 +222,7 @@
                                     <!-- <li>
 
                                         <a href="wishlist.html"><i class="far fa-heart"></i></a></li> -->
-                                    <li data-bind="class:cartProducts().length == 0 ? '' : 'has-dropdown'" >
-
-                                        <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
-
-                                            <span data-bind="text: cartProducts().length" class="total-item-round"></span></a>
-
-                                        <!--====== Dropdown ======-->
-
-                                        <span class="js-menu-toggle"></span>
-                                        <div class="mini-cart">
-
-                                            <!--====== Mini Product Container ======-->
-                                            <div data-bind="foreach: cartProducts" class="mini-product-container gl-scroll u-s-m-b-15">
-
-                                                 <!--====== Card for mini cart ======-->
-                                                 <div class="card-mini-product">
-                                                    <div class="mini-product">
-                                                        <div class="mini-product__image-wrapper">
-
-                                                            <a data-bind="attr:{href: 'product-detail.html?id=' + Id}" class="mini-product__link" >
-
-                                                                <img data-bind="attr: {src: image1? $parent.host() + image1: ''}" class="u-img-fluid" alt=""></a></div>
-                                                        <div class="mini-product__info-wrapper">
-
-                                                            <span class="mini-product__category">
-
-                                                                <a data-bind="text: category.name" href=""></a></span>
-
-                                                            <span class="mini-product__name">
-
-                                                                <a data-bind="text: name, attr:{href: 'product-detail.html?id=' + Id}" ></a></span>
-
-                                                            <span data-bind="text: quantity + ' x '" class="mini-product__quantity"></span>
-                                                            
-
-                                                            <span data-bind="text: price" class="mini-product__price"></span>
-
-                                                            <span class="mini-product__name">
-
-                                                                <span data-bind="text: size.toUpperCase()" class="mini-product__price"></span></span>
-  
-                                                        </div>
-                                                            
-                                                    </div>
-
-                                                    <a data-bind="click: $parent.removeProductFromCart" class="mini-product__delete-link far fa-trash-alt"></a>
-                                                </div>
-                                                <!--====== End - Card for mini cart ======-->
-
-
-                                            </div>
-                                            <!--====== End - Mini Product Container ======-->
-
-
-                                            <!--====== Mini Product Statistics ======-->
-                                            <div class="mini-product-stat">
-                                                <div class="mini-total">
-
-                                                    <span class="subtotal-text">SUBTOTAL</span>
-
-                                                    <span data-bind="text: totalPrice() + ' EGP'" class="subtotal-value"></span></div>
-                                                <div class="mini-action">
-
-                                                    <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO CHECKOUT</a>
-
-                                                    <a class="mini-link btn--e-transparent-secondary-b-2" href="cart.html">VIEW CART</a></div>
-                                            </div>
-                                            <!--====== End - Mini Product Statistics ======-->
-                                        </div>
-                                        <!--====== End - Dropdown ======-->
-                                    </li>
+                                  
                                 </ul>
                                 <!--====== End - List ======-->
                             </div>
@@ -360,12 +289,12 @@
 
                                                     <label class="gl-label" for="billing-fname">FIRST NAME *</label>
 
-                                                    <input class="input-text input-text--primary-style" type="text" id="billing-fname" data-bill=""></div>
+                                                    <input data-bind="value: lastName" class="input-text input-text--primary-style" type="text" id="billing-fname" required></div>
                                                 <div class="u-s-m-b-15">
 
                                                     <label class="gl-label" for="billing-lname">LAST NAME *</label>
 
-                                                    <input class="input-text input-text--primary-style" type="text" id="billing-lname" data-bill=""></div>
+                                                    <input data-bind="value: firstName" class="input-text input-text--primary-style" type="text" id="billing-lname" required></div>
                                             </div>
                                             <!--====== End - First Name, Last Name ======-->
 
@@ -375,43 +304,43 @@
 
                                                 <label class="gl-label" for="billing-email">E-MAIL *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="billing-email" data-bill=""></div>
+                                                <input data-bind="value: email" class="input-text input-text--primary-style" type="text" id="billing-email" data-bill=""></div>
                                             <!--====== End - E-MAIL ======-->
 
 
                                             <!--====== PHONE ======-->
                                             <div class="u-s-m-b-15">
 
-                                                <label class="gl-label" for="billing-phone">PHONE *</label>
+                                                <label class="gl-label" for="billing-phone">MOBILE NUMBER *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="billing-phone" data-bill=""></div>
+                                                <input data-bind="value: mobile" class="input-text input-text--primary-style" type="text" id="billing-phone" data-bill=""></div>
                                             <!--====== End - PHONE ======-->
 
 
                                             <!--====== Street Address ======-->
                                             <div class="u-s-m-b-15">
                                                 <label class="gl-label" for="billing-street">STREET ADDRESS *</label>
-                                                <input class="input-text input-text--primary-style" type="text" id="billing-street" placeholder="Street name" data-bill="">
+                                                <input data-bind="value: streetName" class="input-text input-text--primary-style" type="text" id="billing-street" placeholder="Street name *" data-bill="">
                                             </div>
 
                                             <div class="u-s-m-b-15">
-                                                <input class="input-text input-text--primary-style" type="text" id="billing-street-optional" placeholder="Building" data-bill=""> 
+                                                <input data-bind="value: building" class="input-text input-text--primary-style" type="text" id="billing-street-optional" placeholder="Building *" data-bill=""> 
                                             </div>
 
                                             <div class="u-s-m-b-15">
-                                                <input class="input-text input-text--primary-style" type="text" id="billing-street-optional" placeholder="Floor" data-bill="">
+                                                <input data-bind="value: floor" class="input-text input-text--primary-style" type="text" id="billing-street-optional" placeholder="Floor *" data-bill="">
                                             </div>
 
                                             <div class="u-s-m-b-15">
-                                                <input class="input-text input-text--primary-style" type="text" id="billing-street-optional" placeholder="Apartment" data-bill="">
+                                                <input data-bind="value: apartment" class="input-text input-text--primary-style" type="text" id="billing-street-optional" placeholder="Apartment *" data-bill="">
                                             </div>
                                             <!--====== End - Street Address ======-->
 
 
                                             <!--====== Country ======-->
-                                            <div class="u-s-m-b-15">
+                                            <!-- <div class="u-s-m-b-15">
 
-                                                <!--====== Select Box ======-->
+                             
 
                                                 <label class="gl-label" for="billing-country">GOVERNORATE *</label><select class="select-box select-box--primary-style" id="billing-country" data-bill="">
                                                     <option selected value="">Choose Governorate</option>
@@ -419,17 +348,17 @@
                                                     <option value="uk">United Kingdom (UK)</option>
                                                     <option value="us">United States (US)</option>
                                                 </select>
-                                                <!--====== End - Select Box ======-->
-                                            </div>
+                                          
+                                            </div> -->
                                             <!--====== End - Country ======-->
 
 
                                             <!--====== Town / City ======-->
                                             <div class="u-s-m-b-15">
 
-                                                <label class="gl-label" for="billing-town-city">TOWN/CITY *</label>
+                                                <label class="gl-label" for="billing-town-city">REGION *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="billing-town-city" data-bill=""></div>
+                                                <input data-bind="value: region" class="input-text input-text--primary-style" type="text" id="billing-town-city" data-bill=""></div>
                                             <!--====== End - Town / City ======-->
 
 
@@ -464,6 +393,8 @@
                                                                 <a data-bind="text: name, attr: {href: 'product-detail.html?id=' + Id}"></a></span>
 
                                                             <span data-bind="text: 'Quantity x ' + quantity" class="o-card__quantity"></span>
+
+                                                            <span data-bind="text: 'Size: ' + size.toUpperCase()" class="o-card__quantity"></span>
 
                                                             <span data-bind="text: price * quantity + ' EGP'" class="o-card__price"></span></div>
                                                     </div>
@@ -524,40 +455,39 @@
                                         <div class="o-summary__section u-s-m-b-30">
                                             <div class="o-summary__box">
                                                 <h1 class="checkout-f__h1">PAYMENT INFORMATION</h1>
-                                                <form class="checkout-f__payment">
-                                                    <!-- <div class="u-s-m-b-30"> -->
+                                            
+                                                    <div class="u-s-m-b-30"> 
+                                                        <div class="radio-box">
 
-                                                        <!--====== Radio Box ======-->
-                                                        <!-- <div class="radio-box">
-
-                                                            <input type="radio" id="cash-on-delivery" name="payment">
+                                                            <input data-bind="checked: paymentType" type="radio" id="cash-on-delivery" value="cash" datab name="payment">
                                                             <div class="radio-box__state radio-box__state--primary">
 
                                                                 <label class="radio-box__label" for="cash-on-delivery">Cash on Delivery</label></div>
-                                                        </div> -->
-                                                        <!--====== End - Radio Box ======-->
+                                                        </div>
+                                                        <span class="gl-text u-s-m-t-6">Pay Upon Cash on delivery.</span>
+                                                    </div>
 
-                                                        <!-- <span class="gl-text u-s-m-t-6">Pay Upon Cash on delivery.</span>
-                                                    </div> -->
-                                                   
-                                                    <div class="u-s-m-b-30">
-                                                        <!--====== Radio Box ======-->
+                                                    <div class="u-s-m-b-30"> 
                                                         <div class="radio-box">
 
-                                                            <input type="radio" id="pay-with-card" name="payment">
+                                                            <input data-bind="checked: paymentType" type="radio" id="cash-on-delivery" value="card" name="payment">
                                                             <div class="radio-box__state radio-box__state--primary">
 
-                                                                <label class="radio-box__label" for="pay-with-card">Pay With Credit / Debit Card</label></div>
+                                                                <label class="radio-box__label" for="cash-on-delivery">Credit Card</label></div>
                                                         </div>
-                                                        <!--====== End - Radio Box ======-->
-
-                                                        <span class="gl-text u-s-m-t-6">International Credit Cards.</span>
+                                                        <span class="gl-text u-s-m-t-6">Pay with visa, mastercard or meeza.</span>
                                                     </div>
                                                    
                                                     
-                                                    <div>
-                                                        <button data-bind="click: checkout" class="btn btn--e-brand-b-2">PROCEED TO PAYMENT</button></div>
-                                                </form>
+                                                   
+                                                    
+                                                    <div>    
+                                                        <button type="submit" data-bind="visible: paymentType() == 'cash', click: placeOrder" id="cash-button" class="btn btn--e-brand-b-2">PLACE ORDER</button>
+
+                                                        <div data-bind="visible: paymentType() == 'card'" id="kashier-container"></div>
+
+                                                    </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -752,6 +682,7 @@
     <!--====== Vendor Js ======-->
     <script src="js/vendor.js"></script>
 
+
     <!--====== jQuery Shopnav plugin ======-->
     <script src="js/jquery.shopnav.js"></script>
 
@@ -759,11 +690,8 @@
     <script src="js/app.js"></script>
 
     <script type='text/javascript' src='js/knockout-3.5.1.js'></script>
-    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="js/checkoutVM.js"></script>
-
-    <!-- Import FawryPay Staging JavaScript Library-->
-<script type="text/javascript" src="https://atfawry.fawrystaging.com/atfawry/plugin/assets/payments/js/fawrypay-payments.js"></script>
 
     <!--====== Noscript ======-->
     <noscript>

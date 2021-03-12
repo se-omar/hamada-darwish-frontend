@@ -5,7 +5,21 @@
     self.shippingCost = ko.observable(20)
     self.currentUser = ko.observable()
     self.host = ko.observable('http://localhost:3000/')
-    
+    self.paymentType = ko.observable('card')
+    self.firstName = ko.observable()
+    self.lastName = ko.observable()
+    self.email = ko.observable()
+    self.mobile = ko.observable()
+    self.streetName = ko.observable()
+    self.building = ko.observable()
+    self.floor = ko.observable()
+    self.apartment = ko.observable()
+    self.region = ko.observable()
+    self.orderNotes = ko.observable()
+    self.floor = ko.observable()
+
+    var amount, orderId, hash, merchantId, merchantRedirect
+
     if(!localStorage.getItem('cartProducts')){
         localStorage.setItem('cartProducts', JSON.stringify([]))
       }
@@ -16,6 +30,12 @@
       if(localStorage.getItem('loginToken')){
         refreshCurrentUser()
     }
+
+    if(self.cartProducts()){
+      generateKashierOrderHash(self.cartProducts())
+    }
+
+    
 
       self.totalPrice = ko.computed(function() {
         var total = 0
@@ -31,58 +51,43 @@
     }, self);
 
 
-    self.checkout = () => {
-      const configuration = {
-        locale : "en",  //default en
-        mode: DISPLAY_MODE.POPUP,  //required, allowed values [POPUP, INSIDE_PAGE, SIDE_PAGE]
-    };
-FawryPay.checkout(buildChargeRequest(), configuration);
-    }
-
-    function buildChargeRequest() {
-      const chargeRequest = {
-                      merchantCode: '4ba1a545911c462c926aa3845b914428',
-                      merchantRefNum: '2312465464',
-                      customerMobile: '01154378588',
-                      customerEmail: 'miroayman639@gmail.com',
-                      customerName: 'Customer Name',
-                      customerProfileId: '1212',
-                      paymentExpiry: '1631138400000',
-                      chargeItems: [
-                              {
-                                  itemId: '6b5fdea340e31b3b0339d4d4ae5',
-                                  description: 'Product Description',
-                                  price: 50.00,
-                                  quantity: 2,
-                                  imageUrl: 'https://your-site-link.com/photos/45566.jpg',
-                              },
-                              {
-                                  itemId: '97092dd9e9c07888c7eef36',
-                                  description: 'Product Description',
-                                  price: 75.25,
-                                  quantity: 3,
-                                  imageUrl: 'https://your-site-link.com/photos/639855.jpg',
-                              },
-                      ],
-                      selectedShippingAddress: {
-                        governorate: 'GIZA', //Governorate code at Fawry
-                        city: 'MOHANDESSIN', //City code at Fawry
-                        area: 'GAMETDEWAL', //Area code at Fawry
-                        address: '9th 90 Street, apartment number 8, 4th floor',
-                        receiverName: 'Receiver Name'
-                      },
-                      returnUrl: 'index.html',
-                      authCaptureModePayment: false,
-                      signature: "2ca4c078ab0d4c50ba90e31b3b0339d4d4ae5b32f97092dd9e9c07888c7eef36"
-                  };
-return chargeRequest;
-}
-
-
     self.signout = () => {
       localStorage.removeItem('loginToken')
       window.location.href = 'index.html'
     }
+
+    self.placeOrder = () => {
+      if(!self.firstName() || !self.lastName() || !self.email()
+       || !self.mobile() || !self.streetName() || !self.building() 
+       || !self.apartment() || !self.floor() ||!self.region() ){
+        Swal.fire({
+          title: 'Error!',
+          text: 'Please fill out all required fields',
+          icon: 'error',
+          confirmButtonText: 'Close',
+        
+        })
+       }
+
+       else {
+        $.post("http://localhost:3000/api/placeCashOrder",{
+          firstName: self.firstName(),
+          lastName: self.lastName(),
+          email: self.email(),
+          mobile: self.mobile(),
+          streetName: self.streetName(),
+          building: self.building(),
+          floor: self.floor(),
+          apartment: self.apartment(),
+          region: self.region(),
+          cartProducts: JSON.stringify(self.cartProducts())
+        },
+        function(data) {
+           console.log(data)
+       })
+       }
+    }
+
 
     function refreshCurrentUser() {
       $.post("http://localhost:3000/api/refreshCurrentUser",{token: localStorage.getItem('loginToken')},
@@ -90,6 +95,41 @@ return chargeRequest;
           console.log(data)
           self.currentUser(data.user_id)
       })
+  }
+
+  function generateKashierOrderHash(cartProducts) {
+    console.log(cartProducts)
+    $.post("http://localhost:3000/api/generateKashierOrderHash",{cartProducts: JSON.stringify(cartProducts)},
+    function(data) {
+       console.log(data)
+       amount = data.amount
+       orderId = data.orderId
+       hash = data.hash
+       merchantId = 'MID-6166-145'
+       merchantRedirect = 'https://www.google.com/'
+
+       createKashierButton(amount, hash, orderId, merchantId, merchantRedirect)
+
+   })
+
+  }
+
+  function createKashierButton(amount, hash, orderId, merchantId, merchantRedirect){
+    var kashierContainer = document.getElementById('kashier-container')
+    var kashierButton = document.createElement('script')
+    kashierButton.id = 'kashier-iFrame'
+    kashierContainer.appendChild(kashierButton)
+     kashierButton.setAttribute('data-amount', amount)
+     kashierButton.setAttribute('src', 'https://test-iframe.kashier.io/js/kashier-checkout.js')
+     kashierButton.setAttribute('data-description', 'descriptionarsars')
+     kashierButton.setAttribute('data-hash', hash)
+     kashierButton.setAttribute('data-currency', 'EGP')
+     kashierButton.setAttribute('data-orderId', orderId)
+     kashierButton.setAttribute('data-merchantId', merchantId)
+     kashierButton.setAttribute('data-merchantRedirect', merchantRedirect)
+     kashierButton.setAttribute('data-store', 'online store')
+     kashierButton.setAttribute('data-type', 'external')
+     kashierButton.setAttribute('data-display', 'en')
   }
 
    }
