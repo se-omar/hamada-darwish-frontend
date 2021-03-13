@@ -50,15 +50,7 @@
                         <!--====== End - Main Logo ======-->
 
 
-                        <!--====== Search Form ======-->
-                        <form class="main-form">
-
-                            <label for="main-search"></label>
-
-                            <input class="input-text input-text--border-radius input-text--style-1" type="text" id="main-search" placeholder="Search">
-
-                            <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button></form>
-                        <!--====== End - Search Form ======-->
+                       
 
 
                         <!--====== Dropdown Main plugin ======-->
@@ -118,10 +110,15 @@
                                                     <span>view all categories</span></a>
                                             </li>
 
-                                            <li>
-                                                <a href="admin-view-all-products.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
-                                                    <span>view all products</span></a>
-                                            </li>
+                                           <li>
+                                                    <a href="admin-view-all-products.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                        <span>view all products</span></a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="admin-edit-home-slider.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                        <span>edit home slider</span></a>
+                                                </li>
 
                                             <li>
                                                 <a data-bind="click: signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
@@ -455,7 +452,7 @@
                                                         
                                                             <tr>
                                                                 <td>SUBTOTAL</td>
-                                                                <td data-bind="text: totalPrice"></td>
+                                                                <td data-bind="text: totalPrice() + ' EGP'"></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>

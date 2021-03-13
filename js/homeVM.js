@@ -7,6 +7,7 @@
     self.currentCategory = ko.observable('FEATURED PRODUCTS')
     self.cartProducts = ko.observableArray()
     self.currentUser = ko.observable()
+    self.sliderData = ko.observable()
     self.host = ko.observable('http://localhost:3000/')
     if(!localStorage.getItem('cartProducts')){
       localStorage.setItem('cartProducts', JSON.stringify([]))
@@ -15,7 +16,7 @@
       self.cartProducts(JSON.parse(localStorage.getItem('cartProducts')))
     }
    
-
+    getSliderData()
     getAllFeaturedProducts()
     getAllBrands()
     getAllCategories()
@@ -85,6 +86,12 @@
       cartProducts.splice(cartProducts.findIndex(v => v.Id === product.Id), 1)
       localStorage.setItem('cartProducts', JSON.stringify(cartProducts))
       self.cartProducts(cartProducts)
+    }
+
+    function getSliderData() {
+      $.getJSON("http://localhost:3000/api/getSliderData", function(data) {
+        self.sliderData(data.sliderData)
+      })
     }
 
     function getAllFeaturedProducts() {

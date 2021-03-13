@@ -5,7 +5,7 @@
     self.shippingCost = ko.observable(20)
     self.currentUser = ko.observable()
     self.host = ko.observable('http://localhost:3000/')
-    self.paymentType = ko.observable('card')
+    self.paymentType = ko.observable('cash')
     self.firstName = ko.observable()
     self.lastName = ko.observable()
     self.email = ko.observable()
@@ -17,6 +17,7 @@
     self.region = ko.observable()
     self.orderNotes = ko.observable()
     self.floor = ko.observable()
+    self.orderNotes = ko.observable()
 
     var amount, orderId, hash, merchantId, merchantRedirect
 
@@ -68,6 +69,14 @@
         
         })
        }
+       else if(!validateEmail(self.email())){
+        Swal.fire({
+          title: 'Error!',
+          text: 'Please enter a proper email',
+          icon: 'error',
+          confirmButtonText: 'Close',
+        })
+      }
 
        else {
         $.post("http://localhost:3000/api/placeCashOrder",{
@@ -80,10 +89,23 @@
           floor: self.floor(),
           apartment: self.apartment(),
           region: self.region(),
+          orderNotes: self.orderNotes(),
           cartProducts: JSON.stringify(self.cartProducts())
         },
         function(data) {
            console.log(data)
+           localStorage.removeItem('cartProducts')
+           self.cartProducts([])
+           Swal.fire({
+            title: 'Order Placed!',
+            text: 'Your order was placed successfully, we will contact you in 24 hours.',
+            icon: 'success',
+            confirmButtonText: 'go to home',
+          }).then(result => {
+            window.location.href = 'index.html'
+          }) 
+
+          
        })
        }
     }
@@ -131,6 +153,11 @@
      kashierButton.setAttribute('data-type', 'external')
      kashierButton.setAttribute('data-display', 'en')
   }
+
+  function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 
    }
 
