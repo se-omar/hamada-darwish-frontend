@@ -31,11 +31,11 @@
     <!--====== Main App ======-->
     <div id="app">
 
-<!--====== Main Header ======-->
-<header class="header--style-3">
+ <!--====== Main Header ======-->
+ <header class="header--style-1 header--box-shadow">
 
     <!--====== Nav 1 ======-->
-    <nav class="primary-nav-wrapper">
+    <nav class="primary-nav primary-nav-wrapper--border">
         <div class="container">
 
             <!--====== Primary Nav ======-->
@@ -49,21 +49,13 @@
                 <!--====== End - Main Logo ======-->
 
 
-                <!-- ====== Search Form ======-->
-                <!-- <form class="main-form">
-
-                    <label for="main-search"></label>
-
-                    <input class="input-text input-text--border-radius input-text--only-white" type="text" id="main-search" placeholder="Search">
-
-                    <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button></form> -->
-                <!--====== End - Search Form ====== -->
+               
 
 
                 <!--====== Dropdown Main plugin ======-->
                 <div class="menu-init" id="navigation">
 
-                    <button class="btn btn--icon toggle-button toggle-button--white fas fa-cogs" type="button"></button>
+                    <button class="btn btn--icon toggle-button fas fa-cogs" type="button"></button>
 
                     <!--====== Menu ======-->
                     <div class="ah-lg-mode">
@@ -71,7 +63,7 @@
                         <span class="ah-close">✕ Close</span>
 
                         <!--====== List ======-->
-                        <ul class="ah-list ah-list--design1 ah-list--link-color-white">
+                        <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
                             <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Account">
 
                                 <a><i class="far fa-user-circle"></i></a>
@@ -117,15 +109,15 @@
                                             <span>view all categories</span></a>
                                     </li>
 
-                                    <li>
-                                        <a href="admin-view-all-products.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
-                                            <span>view all products</span></a>
-                                    </li>
+                                   <li>
+                                            <a href="admin-view-all-products.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                <span>view all products</span></a>
+                                        </li>
 
-                                    <li>
-                                        <a href="admin-edit-home-slider.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
-                                            <span>edit home slider</span></a>
-                                    </li>
+                                        <li>
+                                            <a href="admin-edit-home-slider.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                <span>edit home slider</span></a>
+                                        </li>
 
                                     <li>
                                         <a data-bind="click: signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
@@ -136,47 +128,7 @@
 
                                 <!--====== End - Dropdown ======-->
                             </li>
-
-                             <!--====== start - commented part ======-->
-                            <script type="text/html">
-                            <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Settings">
-
-                                <a><i class="fas fa-user-cog"></i></a>
-
-                                <!--====== Dropdown ======-->
-
-                                <span class="js-menu-toggle"></span>
-                                <ul style="width:120px">
-                                    <li class="has-dropdown has-dropdown--ul-right-100">
-
-                                        <a>Language<i class="fas fa-angle-down u-s-m-l-6"></i></a>
-
-                                        <!--====== Dropdown ======-->
-
-                                        <span class="js-menu-toggle"></span>
-                                        <ul style="width:120px">
-                                            <li>
-
-                                                <a class="u-c-brand">ENGLISH</a></li>
-                                            <li>
-
-                                                <a>ARABIC</a></li>
-                                            <li>
-
-                                                <a>FRANCAIS</a></li>
-                                            <li>
-
-                                                <a>ESPANOL</a></li>
-                                        </ul>
-                                        <!--====== End - Dropdown ======-->
-                                    </li>
-                                   
-                                </ul>
-                                <!--====== End - Dropdown ======-->
-                            </li>
-                        </script>
-                         <!--====== end - commented part ======-->
-                         
+                           
                             <li data-tooltip="tooltip" data-placement="left" title="Contact">
 
                                 <a href="tel:+201154378588"><i class="fas fa-phone-volume"></i></a></li>
@@ -203,12 +155,19 @@
             <!--====== Secondary Nav ======-->
             <div class="secondary-nav">
 
-                <div class="menu-init" id="navigation1"></div>
+                <!--====== Dropdown Main plugin ======-->
+                <div class="menu-init" id="navigation1">
+
+                    <button class="btn btn--icon toggle-mega-text toggle-button" type="button">M</button>
+
+                </div>
+                <!--====== End - Dropdown Main plugin ======-->
+
 
                 <!--====== Dropdown Main plugin ======-->
                 <div class="menu-init" id="navigation2">
 
-                    <button class="btn btn--icon toggle-button toggle-button--white fas fa-cog" type="button"></button>
+                    <button class="btn btn--icon toggle-button fas fa-cog" type="button"></button>
 
                     <!--====== Menu ======-->
                     <div class="ah-lg-mode">
@@ -216,18 +175,17 @@
                         <span class="ah-close">✕ Close</span>
 
                         <!--====== List ======-->
-                        <ul class="ah-list ah-list--design2 ah-list--link-color-white">
+                        <ul class="ah-list ah-list--design2 ah-list--link-color-secondary">
                             <li>
 
-                                <a href="">HOME</a></li>
-                           
+                                <a href="index.html">HOME</a>
+                            </li>
+                     
                             <li class="has-dropdown">
-
                                 <a>ABOUT US<i class=" u-s-m-l-6"></i></a>
 
-                            <li>
-
-                                <a href="">SPECIAL PRODUCTS</a></li>
+                            </li>
+                           
                             <li>
 
                                 <a href="">CONTACT US</a></li>
@@ -252,82 +210,84 @@
                         <span class="ah-close">✕ Close</span>
 
                         <!--====== List ======-->
-                        <ul class="ah-list ah-list--design1 ah-list--link-color-white">
+                        <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
                             <li>
 
                                 <a href="index.html"><i class="fas fa-home u-c-brand"></i></a></li>
-                           
-                            <li class="has-dropdown">
+                            <!-- <li>
 
-                                <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
+                                <a href="wishlist.html"><i class="far fa-heart"></i></a></li> -->
+                                <li class="has-dropdown">
 
-                                    <span data-bind="text: cartProducts().length" class="total-item-round"></span></a>
+                                    <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
 
-                                <!--====== Dropdown ======-->
+                                        <span data-bind="text: cartProducts().length" class="total-item-round"></span></a>
 
-                                <span class="js-menu-toggle"></span>
-                                <div class="mini-cart">
+                                    <!--====== Dropdown ======-->
 
-                                    <!--====== Mini Product Container ======-->
-                                    <div data-bind="foreach: cartProducts" class="mini-product-container gl-scroll u-s-m-b-15">
-                                        <!--====== Card for mini cart ======-->
-                                        <div class="card-mini-product">
-                                            <div class="mini-product">
-                                                <div class="mini-product__image-wrapper">
+                                    <span class="js-menu-toggle"></span>
+                                    <div class="mini-cart">
 
-                                                    <a data-bind="attr:{href: 'product-detail.html?id=' + Id}" class="mini-product__link" >
+                                        <!--====== Mini Product Container ======-->
+                                        <div data-bind="foreach: cartProducts" class="mini-product-container gl-scroll u-s-m-b-15">
+                                            <!--====== Card for mini cart ======-->
+                                            <div class="card-mini-product">
+                                                <div class="mini-product">
+                                                    <div class="mini-product__image-wrapper">
 
-                                                        <img data-bind="attr: {src: image1? $parent.host() + image1: ''}" class="u-img-fluid" alt=""></a></div>
-                                                <div class="mini-product__info-wrapper">
+                                                        <a data-bind="attr:{href: 'product-detail.html?id=' + Id}" class="mini-product__link" >
 
-                                                    <span class="mini-product__category">
+                                                            <img data-bind="attr: {src: image1? $parent.host() + image1: ''}" class="u-img-fluid" alt=""></a></div>
+                                                    <div class="mini-product__info-wrapper">
 
-                                                        <a data-bind="text: category.name" href=""></a></span>
+                                                        <span class="mini-product__category">
 
-                                                    <span class="mini-product__name">
+                                                            <a data-bind="text: category.name" href=""></a></span>
 
-                                                        <a data-bind="text: name, attr:{href: 'product-detail.html?id=' + Id}" ></a></span>
+                                                        <span class="mini-product__name">
 
-                                                    <span data-bind="text: quantity + ' x '" class="mini-product__quantity"></span>
-                                                    
+                                                            <a data-bind="text: name, attr:{href: 'product-detail.html?id=' + Id}" ></a></span>
 
-                                                    <span data-bind="text: price" class="mini-product__price"></span>
+                                                        <span data-bind="text: quantity + ' x '" class="mini-product__quantity"></span>
+                                                        
 
-                                                    <span class="mini-product__name">
+                                                        <span data-bind="text: price" class="mini-product__price"></span>
 
-                                                        <span data-bind="text: size.toUpperCase()" class="mini-product__price"></span></span>
+                                                        <span class="mini-product__name">
 
+                                                            <span data-bind="text: size.toUpperCase()" class="mini-product__price"></span></span>
+
+                                                    </div>
+                                                        
                                                 </div>
-                                                    
+
+                                                <a data-bind="click: $parent.removeProductFromCart" class="mini-product__delete-link far fa-trash-alt"></a>
                                             </div>
+                                            <!--====== End - Card for mini cart ======-->
 
-                                            <a data-bind="click: $parent.removeProductFromCart" class="mini-product__delete-link far fa-trash-alt"></a>
+
                                         </div>
-                                        <!--====== End - Card for mini cart ======-->
+                                        <!--====== End - Mini Product Container ======-->
 
 
+                                        <!--====== Mini Product Statistics ======-->
+                                        <div class="mini-product-stat">
+                                            <div class="mini-total">
+
+                                                <span class="subtotal-text">SUBTOTAL</span>
+
+                                                <span data-bind="text: totalPrice() + ' EGP'" class="subtotal-value"></span></div>
+                                            <div class="mini-action">
+
+                                                <a data-bind="click: goToCheckout" class="mini-link btn--e-brand-b-2">PROCEED TO CHECKOUT</a>
+
+                                                <a  data-bind="click: goToCart" class="mini-link btn--e-transparent-secondary-b-2" >VIEW CART</a></div>
+                                        </div>
+                                        <!--====== End - Mini Product Statistics ======-->
                                     </div>
-                                    <!--====== End - Mini Product Container ======-->
-
-
-                                    <!--====== Mini Product Statistics ======-->
-                                    <div class="mini-product-stat">
-                                        <div class="mini-total">
-
-                                            <span class="subtotal-text">SUBTOTAL</span>
-
-                                            <span data-bind="text: totalPrice() + ' EGP'" class="subtotal-value"></span></div>
-                                        <div class="mini-action">
-
-                                            <a data-bind="click: goToCheckout" class="mini-link btn--e-brand-b-2">PROCEED TO CHECKOUT</a>
-
-                                            <a  data-bind="click: goToCart" class="mini-link btn--e-transparent-secondary-b-2" >VIEW CART</a></div>
                                     </div>
-                                    <!--====== End - Mini Product Statistics ======-->
-                                </div>
-                                </div>
-                                <!--====== End - Dropdown ======-->
-                            </li>
+                                    <!--====== End - Dropdown ======-->
+                                </li>
                         </ul>
                         <!--====== End - List ======-->
                     </div>
