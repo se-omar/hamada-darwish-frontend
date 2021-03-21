@@ -81,6 +81,36 @@
       window.location.href = 'index.html'
     }
 
+    self.goToCheckout = () => {
+      if(self.cartProducts().length < 1){
+        Swal.fire({
+          title: 'Error!',
+          text: 'your cart is empty, please add products',
+          icon: 'error',
+          confirmButtonText: 'Close',
+        
+        })
+      }
+      else{
+        window.location.href = 'checkout.html'
+      }
+    }
+
+    self.goToCart = () => {
+      if(self.cartProducts().length < 1){
+        Swal.fire({
+          title: 'Error!',
+          text: 'your cart is empty, please add products',
+          icon: 'error',
+          confirmButtonText: 'Close',
+        
+        })
+      }
+      else{
+        window.location.href = 'cart.html'
+      }
+    }
+
 
     console.log(self.totalPrice())
 

@@ -45,6 +45,36 @@ self.currentUser = ko.observable()
     })
       }
 
+      self.goToCheckout = () => {
+        if(self.cartProducts().length < 1){
+          Swal.fire({
+            title: 'Error!',
+            text: 'your cart is empty, please add products',
+            icon: 'error',
+            confirmButtonText: 'Close',
+          
+          })
+        }
+        else{
+          window.location.href = 'checkout.html'
+        }
+      }
+  
+      self.goToCart = () => {
+        if(self.cartProducts().length < 1){
+          Swal.fire({
+            title: 'Error!',
+            text: 'your cart is empty, please add products',
+            icon: 'error',
+            confirmButtonText: 'Close',
+          
+          })
+        }
+        else{
+          window.location.href = 'cart.html'
+        }
+      }
+
       self.signout = () => {
         localStorage.removeItem('loginToken')
         window.location.href = 'index.html'

@@ -58,7 +58,16 @@
     }
 
     self.placeOrder = () => {
-      if(!self.firstName() || !self.lastName() || !self.email()
+      if( self.cartProducts().length < 1 ){
+        Swal.fire({
+          title: 'Error!',
+          text: 'Your cart is empty, please select products',
+          icon: 'error',
+          confirmButtonText: 'Close',
+        
+        })
+      }
+      else if(!self.firstName() || !self.lastName() || !self.email()
        || !self.mobile() || !self.streetName() || !self.building() 
        || !self.apartment() || !self.floor() ||!self.region() ){
         Swal.fire({
